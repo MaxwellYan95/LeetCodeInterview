@@ -2,34 +2,25 @@
 
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
-        dp = [[False for i in range(len(s2)+1)] for j in range(len(s3)+1)]
-        def recurInterleave(s1: str, s2: str, s3: str) -> bool:
-            if (dp[len(s3)][len(s2)] == True):
-                return True;
-            elif (len(s1) == 0):
-                dp[len(s3)][len(s2)] = (s3 == s2);
-                return s3 == s2;
-            elif (len(s2) == 0):
-                dp[len(s3)][len(s2)] = (s3 == s1);
-                return s3 == s1;
-            elif (len(s1) == 0):
-                dp[len(s3)][len(s2)] = (s3 == s2);
-                return s3 == s2;
-            elif (s1[0] == s3[0] and s2[0] == s1[0]):
-                dp[len(s3)][len(s2)] = (recurInterleave(s1[1:], s2, s3[1:]) or recurInterleave(s1, s2[1:], s3[1:]));
-                return dp[len(s3)][len(s2)];
-            elif (s1[0] == s3[0]):
-                dp[len(s3)][len(s2)] = recurInterleave(s1[1:], s2, s3[1:]);
-                return dp[len(s3)][len(s2)];
-            elif (s2[0] == s3[0]):
-                dp[len(s3)][len(s2)] = recurInterleave(s1, s2[1:], s3[1:]);
-                return dp[len(s3)][len(s2)];
-            else:
-                dp[len(s3)][len(s2)] = False;
-            return False;
-        return recurInterleave(s1, s2, s3);
+        # Can s1[0: i] and s2[0: j] form s3[0: i+j]
+        if len(s1)+len(s2) != len(s3):
+            return False
+        dp = [[False for i in range(len(s2)+1)] for j in range(len(s1)+1)]
+        dp[0][0] = True;
+        for i in range(1, len(s1)+1):
+            dp[i][0] = dp[i-1][0] and s1[i-1] == s3[i-1];
+        for j in range(1, len(s2)+1):
+            dp[0][j] = dp[0][j-1] and s2[j-1] == s3[j-1];
+        for i in range(1, len(s1)+1):
+            for j in range(1, len(s2)+1):
+                cond1 = dp[i-1][j] and s1[i-1] == s3[i+j-1];
+                cond2 = dp[i][j-1] and s2[j-1] == s3[i+j-1];
+                dp[i][j] = cond2 or cond1;
+        return dp[len(s1)][len(s2)];
+
 sol = Solution();
-print(sol.isInterleave("a", "b", "a"));
+print(sol.isInterleave("", "b", "b"));
+print();
 
 
 
