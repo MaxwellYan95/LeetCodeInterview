@@ -14,29 +14,34 @@ class Solution:
         return adj;
     def solve(self, board: list[list[str]]) -> None:
         visited = [["0" for inner in board[0]] for outer in board];
-        def dfs(x: int, y: int, edge: bool) -> bool:
-            condList = [];
-            onEdge = (x == 0 or x == len(board[0])-1 or y == 0 or y == len(board)-1);
-            adj = self.adjacent(x, y, len(board[0])-1, len(board)-1);
-            visited[y][x] = "X";
-            for x1, y1 in adj:
-                hasO = (board[y1][x1] == "O")
-                notVisited = (visited[y1][x1] != "X");
-                if hasO and notVisited:
-                    condList.append(dfs(x1, y1, onEdge));
-            if False not in condList and edge != True and onEdge != True:
+        stack = collections.deque();
+        def bfs(startX: int, startY: int):
+            stack.append([startX, startY]);
+            coordinates = [[startX, startY]];
+            onEdge = False;
+            while stack:
+                x, y = stack.popleft();
+                visited[y][x] = "X";
+                adj = self.adjacent(x, y, len(board[0])-1, len(board)-1);
+                if not onEdge:
+                    onEdge = (x == 0 or x == len(board[0])-1 or y == 0 or y == len(board)-1);
                 for x1, y1 in adj:
-                    board[y1][x1] = "X";
-                board[y][x] = "X";
-                return True;
-            return False;
+                    hasO = (board[y1][x1] == "O")
+                    notVisited = (visited[y1][x1] != "X");
+                    if hasO and notVisited:
+                        coordinates.append([x1, y1]);
+                        stack.append([x1, y1]);
+            if not onEdge:
+                for x, y in coordinates:
+                    board[y][x] = "X";
+
+
         for y in range(len(board)):
             for x in range(len(board[y])):
                 hasO = (board[y][x] == "O")
                 notVisited = (visited[y][x] != "X");
                 if hasO and notVisited:
-                    dfs(x, y, False);
-                visited[y][x] = "X";
+                    bfs(x, y);
         return board;
 
 
