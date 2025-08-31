@@ -1,4 +1,4 @@
-import collections
+import collections;
 
 class Solution:
     def adjacent(self, x: int, y: int, maxX: int, maxY: int):
@@ -46,7 +46,11 @@ class Solution:
             notVisited = (visited[len(board)-1][x] == "X");
             if hasO and notVisited:
                 bfs(x, len(board)-1);
-        return visited;
+
+        for y in range(len(visited)):
+            for x in range(len(visited[0])):
+                board[y][x] = visited[y][x];
+
 
 
 sol = Solution();
