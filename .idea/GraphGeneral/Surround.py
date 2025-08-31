@@ -13,36 +13,40 @@ class Solution:
             adj.append([x+1, y]);
         return adj;
     def solve(self, board: list[list[str]]) -> None:
-        visited = [["0" for inner in board[0]] for outer in board];
+        visited = [["X" for inner in board[0]] for outer in board];
         stack = collections.deque();
         def bfs(startX: int, startY: int):
             stack.append([startX, startY]);
-            coordinates = [[startX, startY]];
-            onEdge = False;
             while stack:
                 x, y = stack.popleft();
-                visited[y][x] = "X";
+                visited[y][x] = "O";
                 adj = self.adjacent(x, y, len(board[0])-1, len(board)-1);
-                if not onEdge:
-                    onEdge = (x == 0 or x == len(board[0])-1 or y == 0 or y == len(board)-1);
                 for x1, y1 in adj:
                     hasO = (board[y1][x1] == "O")
-                    notVisited = (visited[y1][x1] != "X");
+                    notVisited = (visited[y1][x1] == "X");
                     if hasO and notVisited:
-                        coordinates.append([x1, y1]);
                         stack.append([x1, y1]);
-            if not onEdge:
-                for x, y in coordinates:
-                    board[y][x] = "X";
-
 
         for y in range(len(board)):
-            for x in range(len(board[y])):
-                hasO = (board[y][x] == "O")
-                notVisited = (visited[y][x] != "X");
-                if hasO and notVisited:
-                    bfs(x, y);
-        return board;
+            hasO = (board[y][0] == "O");
+            notVisited = (visited[y][0] == "X");
+            if hasO and notVisited:
+                bfs(0, y);
+            hasO = (board[y][len(board[0])-1] == "O");
+            notVisited = (visited[y][len(board[0])-1] == "X");
+            if hasO and notVisited:
+                bfs(len(board[0])-1, y);
+
+        for x in range(len(board[0])):
+            hasO = (board[0][x] == "O");
+            notVisited = (visited[0][x] == "X");
+            if hasO and notVisited:
+                bfs(x, 0);
+            hasO = (board[len(board)-1][x] == "O");
+            notVisited = (visited[len(board)-1][x] == "X");
+            if hasO and notVisited:
+                bfs(x, len(board)-1);
+        return visited;
 
 
 sol = Solution();
