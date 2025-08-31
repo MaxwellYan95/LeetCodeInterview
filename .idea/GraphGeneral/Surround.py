@@ -27,6 +27,7 @@ class Solution:
             if False not in condList and edge != True and onEdge != True:
                 for x1, y1 in adj:
                     board[y1][x1] = "X";
+                board[y][x] = "X";
                 return True;
             return False;
         for y in range(len(board)):
@@ -35,6 +36,7 @@ class Solution:
                 notVisited = (visited[y][x] != "X");
                 if hasO and notVisited:
                     dfs(x, y, False);
+                visited[y][x] = "X";
         return board;
 
 
@@ -47,3 +49,9 @@ print(sol.solve([["O","O","O","O","X","X"],
              ["O","X","O","O","O","O"]]))
 print(sol.solve([["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]))
 print(sol.solve([["X","X","X"],["X","O","X"],["X","X","X"]]));
+print(sol.solve([["O","O","O","O","X","X"],
+                 ["O","O","O","O","O","O"],
+                 ["O","X","O","X","O","O"],
+                 ["O","X","O","O","X","O"],
+                 ["O","X","O","X","O","O"],
+                 ["O","X","O","O","O","O"]]))
