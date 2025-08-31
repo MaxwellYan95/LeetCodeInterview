@@ -1,54 +1,41 @@
-class charAndNumber:
-    def __init__(self, letter: str, number: float):
-        self.letter = letter;
-        self.number = number;
-    def getLetter(self):
-        return self.letter;
-    def getNumber(self):
-        return self.number;
-
 class Solution:
-    def calcEquation(self, equations: list[list[str]], values: list[float], queries: list[list[str]]) -> list[float]:
-        def variables(equations: list[list[str]], values: list[float]):
-            var = {};
-            for index in range(len(equations)):
-                equa = equations[index]
-                firstC = equa[0];
-                secondC = equa[1];
-                if firstC in var:
-                    var[firstC].append(charAndNumber(secondC, values[index]));
-                else:
-                    var[firstC] = [charAndNumber(secondC, values[index])];
-                if secondC in var:
-                    var[secondC].append(charAndNumber(1/float(values[index]), firstC));
-                else:
-                    var[secondC] = [charAndNumber(1/float(values[index]), firstC)];
-            return var;
-        substitute = variables(equations, values);
-        nums = [];
-        for q in queries:
-            found = False;
-            q1 = q[0];
-            q2 = q[1];
-            if q1 in substitute:
-                for sub in substitute[q1]:
-                    if q2 == sub.letter:
-                        nums.append(1/sub.number);
-                        found = True;
-                        break;
-            if (found == True):
-                continue;
-            if q2 in substitute:
-                for sub in substitute[q2]:
-                    if q1 == sub.letter:
-                        nums.append(sub.number);
-                        found = True;
-                        break;
-            if (found == True):
-                continue;
+
+    def makeDict(self, equations: list[list[str]], values: list[float]):
+        eq_dict = dict();
+        for index in range(len(values)):
+            n1, n2 = equations[index];
+            val = values[index];
+            if n1 not in eq_dict.keys():
+                eq_dict[n1] = [[n2, val]];
             else:
-                nums.append(-1);
-        return nums;
+                eq_dict[n1].append([n2, val])
+            if n2 not in eq_dict.keys():
+                eq_dict[n2] = [[n1, 1/val]];
+            else:
+                eq_dict[n2].append([n1, 1/val]);
+        return eq_dict;
+    def calcEquation(self, equations: list[list[str]], values: list[float], queries: list[list[str]]) -> list[float]:
+        eq_dict = self.makeDict(equations, values);
+        def dfs(temp_dict: dict, query: list[str]):
+            if query[0] not in temp_dict:
+                return -1;
+            eq_values = temp_dict[query[0]];
+            for num, val in eq_values:
+                if (num == query[1]):
+                    return val;
+                temp_dict[query[0]] = temp_dict[query[0]][1:];
+                recur = dfs(temp_dict, [num, query[1]]);
+                if recur != -1:
+                    return val*recur;
+            return -1;
+
+        results = [];
+        for query in queries:
+            val = dfs(eq_dict.copy(), query);
+            results.append(val);
+        return results;
+
+
 
 sol = Solution();
 print(sol.calcEquation([["a","b"],["b","c"]], [2, 3], [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]))
