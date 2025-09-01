@@ -10,24 +10,27 @@ class Solution:
                 graph[c1].append(c2);
         return graph;
 
-    def bfs(self, preqDict: dict):
-        if len(preqDict.keys()) == 0:
-            return True;
-        stack = collections.deque();
-        stack.append(list(preqDict.keys())[0]);
-        visited = [];
-        while stack:
-            course = stack.popleft();
-            for subCourse in preqDict[course]:
-                if subCourse in visited:
-                    return False;
-                stack.append(subCourse);
-                visited.append(subCourse);
-        return True;
-
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
         preqDict = self.makeDict(prerequisites);
-        return self.bfs(preqDict);
+        visited = [];
+        def dfs(course: int):
+            if course in visited:
+                return False;
+            visited.append(course);
+            if course not in preqDict:
+                return True;
+            for subCourse in preqDict[course]:
+                result = dfs(subCourse);
+                if result == False:
+                    return False;
+            return True;
+        for key in preqDict.keys():
+            res = dfs(key);
+            if res == False:
+                return False;
+            visited = [];
+        return True;
 
 sol = Solution();
-print(sol.canFinish(2, [[1,0]]));
+print(sol.canFinish(2, [[1,0],[0,1]]));
+print(sol.canFinish(5, [[1,4],[2,4],[3,1],[3,2]]));
