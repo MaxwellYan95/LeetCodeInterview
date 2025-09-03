@@ -9,29 +9,30 @@ class Solution:
     def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         preqDict = self.makeDict(prerequisites);
         visited = [];
+        courseList = [];
+        def addCourse(course: int):
+            if course not in courseList:
+                courseList.append(course);
         def dfs(course: int):
-            lst = []
             if not preqDict[course]:
-                return [course];
+                addCourse(course);
+                return True;
             # "course in visited" comes 2nd
             if course in visited:
-                return [];
+                return False;
             visited.append(course);
             for subCourse in preqDict[course]:
-                prevList = dfs(subCourse);
-                if len(prevList) == 0:
-                    return [];
-                lst.extend(prevList);
-            lst.insert(len(lst)-1, course);
-
+                if not dfs(subCourse):
+                    return False;
             # pop() is used as memorization
             preqDict.pop(course);
-            return lst;
+            addCourse(course);
+            return True;
         for course in range(numCourses):
             lst = dfs(course)
             if not lst:
                 return [];
-        return visited;
+        return courseList;
 sol = Solution();
 print(sol.findOrder(2, [[1,0],[0,1]]));
 print(sol.findOrder(5, [[1,4],[2,4],[3,1],[3,2]]));
