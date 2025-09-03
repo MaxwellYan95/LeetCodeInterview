@@ -3,6 +3,10 @@ class Node:
         self.key = key;
         self.value = value;
         self.next = None;
+    def setKey(self, key: int):
+        self.key = key;
+    def setValue(self, value: int):
+        self.value = value;
 
 
 
@@ -11,6 +15,7 @@ class LRUCache:
     def __init__(self, capacity: int):
         self.cache = None;
         self.capacity = capacity;
+        self.length = 0;
 
 
     def get(self, key: int) -> int:
@@ -19,40 +24,39 @@ class LRUCache:
         if (self.cache.key == key):
             return self.cache.value;
         def traverse(prev: Node, cur: Node):
-            return traverse(cur, cur.next);
+            if cur == None:
+                return -1;
             if cur.key == key:
+                oldKey = cur.key;
                 res = cur.value;
                 prev.next = cur.next;
+                oldCache = self.cache;
+                self.cache = Node(oldKey, res);
+                self.cache.next = oldCache;
                 return res;
             if cur.next == None:
                 return -1;
+            return traverse(cur, cur.next);
         result = traverse(self.cache, self.cache.next);
-        if result != -1:
-            first = self.cache;
-            self.cache = LRUCache()
+        return result;
 
 
     def put(self, key: int, value: int) -> None:
         if self.cache == None:
             self.cache = Node(key, value);
-        else:
-            counter = 1;
+            self.length += 1;
+            return;
+        first = self.cache;
+        if self.length == self.capacity:
             traverse = self.cache;
-            first = self.cache;
-            while traverse.next != None and counter != self.capacity:
+            for i in range(self.capacity-2):
                 traverse = traverse.next;
-                counter += 1;
-                if traverse.key == key:
-                    traverse.value = value;
-                    return;
-            traverse.next = Node(key, value);
-            if counter == self.capacity:
-                self.cache = first.next;
+            traverse.next = None;
+        else:
+            self.length += 1;
+        self.cache = Node(key, value);
+        self.cache.next = first;
 
-sol = LRUCache(3);
-sol.put(1, 1);
-sol.put(2, 2);
-sol.put(3, 3);
-sol.put(4, 4);
-sol.put(3, 4);
-sol.put(5, 5);
+sol = LRUCache(1);
+sol.put(2, 1);
+print(sol.get(1));
