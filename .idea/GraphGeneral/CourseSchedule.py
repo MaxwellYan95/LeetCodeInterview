@@ -10,11 +10,10 @@ class Solution:
         preqDict = self.makeDict(prerequisites);
         visited = [];
         def dfs(course: int):
-            # Dont put "course in visited" first
-            if course in visited:
-                return False;
             if not preqDict[course]:
                 return True;
+            if course in visited:
+                return False;
             visited.append(course);
             for subCourse in preqDict[course]:
                 if not dfs(subCourse):
