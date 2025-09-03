@@ -12,12 +12,14 @@ class Solution:
         def dfs(course: int):
             if not preqDict[course]:
                 return True;
+            # "course in visited" comes 2nd
             if course in visited:
                 return False;
             visited.append(course);
             for subCourse in preqDict[course]:
                 if not dfs(subCourse):
                     return False;
+            # pop() is used as memorization
             preqDict.pop(course);
             return True;
         for course in range(numCourses):
