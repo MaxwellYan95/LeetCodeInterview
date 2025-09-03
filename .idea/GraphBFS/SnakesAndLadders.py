@@ -5,7 +5,8 @@ import heapq
 class Solution:
     def gridToLine(self, board: list[list[int]]) -> list[int]:
         forward = True;
-        line = [];
+        # Add extra element to make sure indices are aligned
+        line = [-1];
         for b in reversed(board):
             if forward:
                 line.extend(b);
@@ -17,8 +18,10 @@ class Solution:
     def snakesAndLadders(self, board: list[list[int]]) -> int:
         line = self.gridToLine(board);
         bestSpot = [];
+        visited = [];
         heapq.heapify(bestSpot);
-        heapq.heappush(bestSpot, [0, 0])
+        # first element is negative in order to create a max heap
+        heapq.heappush(bestSpot, [-1, 0])
         self.minMoves = -1;
         def bfs():
             while bestSpot:
@@ -34,8 +37,9 @@ class Solution:
                 forward = [spot+1, moves+1];
                 forwardSpot = spot+1;
                 for next in line[spot+1: endBound]:
-                    if next != -1 and next != spot:
+                    if next != -1 and next not in visited:
                         heapq.heappush(bestSpot, [-next, moves+1]);
+                        visited.append(next);
                     else:
                         forward[0] = -forwardSpot;
                     forwardSpot += 1;
@@ -47,3 +51,4 @@ class Solution:
 sol = Solution();
 print(sol.gridToLine([[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]))
 print(sol.snakesAndLadders([[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]))
+print(sol.snakesAndLadders([[-1,4,-1],[6,2,6],[-1,3,-1]]))
