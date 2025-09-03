@@ -18,27 +18,29 @@ class Solution:
         line = self.gridToLine(board);
         bestSpot = [];
         heapq.heapify(bestSpot);
-        def bfs(spot: int):
-            moves = -1;
-            if spot == len(line):
-                return 0;
-            endBound = min(spot+6, len(line)-1);
-            endSpot = line[endBound];
-            for next in line[spot+1: endBound-1]:
-                if next != -1:
-                    heapq.heappush(bestSpot, -next);
-            if endSpot == -1:
-                heapq.heappush(bestSpot, -endBound);
-            else:
-                heapq.heappush(bestSpot, -endSpot);
+        heapq.heappush(bestSpot, [0, 0])
+        self.minMoves = -1;
+        def bfs():
             while bestSpot:
-                nextSpot = -heapq.heappop(bestSpot);
-                if moves == -1:
-                    moves = 1+bfs(nextSpot);
+                spot, moves = heapq.heappop(bestSpot);
+                spot = -spot;
+                if spot == len(line)-1:
+                    if self.minMoves == -1:
+                        self.minMoves = moves;
+                    else:
+                        self.minMoves = min(self.minMoves, moves);
+                    continue;
+                endBound = min(spot+6, len(line)-1);
+                endSpot = line[endBound];
+                for next in line[spot+1: endBound-1]:
+                    if next != -1:
+                        heapq.heappush(bestSpot, [-next, moves+1]);
+                if endSpot == -1:
+                    heapq.heappush(bestSpot, [-endBound, moves+1]);
                 else:
-                    moves = min(moves, 1);
-            return moves;
-        return bfs(0);
+                    heapq.heappush(bestSpot, [-endSpot, moves+1]);
+        bfs();
+        return self.minMoves;
 
 
 sol = Solution();
