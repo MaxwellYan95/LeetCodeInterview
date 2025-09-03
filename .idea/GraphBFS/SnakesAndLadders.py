@@ -10,8 +10,11 @@ class Solution:
         for b in reversed(board):
             if forward:
                 line.extend(b);
+                # I forgot to change the forward variable
+                forward = False;
             else:
                 line.extend(reversed(b));
+                forward = True;
         return line;
 
 
@@ -20,26 +23,27 @@ class Solution:
         stack = collections.deque();
         visited = [False for i in line];
         visited[1] = True;
-        stack.append(1);
-        moves = 0;
+        stack.append([1, 0]);
         final = len(line)-1;
+        self.minMoves = -1;
         while stack:
             # Look at the possible moves you can make
-            for _ in range(len(stack)):
-                spot = stack.popleft();
-                if spot == final:
-                    return moves;
-                for dice in range(1, 7):
-                    next = spot + dice;
-                    if next > final:
-                        continue;
-                    if line[next] != -1:
-                        next = line[next];
-                    if visited[next] == False:
-                        visited[next] = True;
-                        stack.append(next);
-            moves += 1;
-        return -1;
+            spot, moves = stack.popleft();
+            for dice in range(1, 7):
+                next = spot + dice;
+                if next > final:
+                    continue;
+                if line[next] != -1:
+                    next = line[next];
+                if next == final:
+                    if self.minMoves == -1:
+                        self.minMoves = moves+1;
+                    else:
+                        self.minMoves = min(self.minMoves, moves+1);
+                if visited[next] == False:
+                    visited[next] = True;
+                    stack.append([next, moves+1]);
+        return self.minMoves;
 
 
 

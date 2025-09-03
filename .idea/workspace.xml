@@ -185,14 +185,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/GraphBFS/SnakesAndLadders.py</url>
-          <line>46</line>
+          <line>49</line>
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="spot == 13" language="Python" />
           <url>file://$PROJECT_DIR$/.idea/GraphBFS/SnakesAndLadders.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="82" />
+          <line>20</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/GraphBFS/SnakesAndLadders.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/GraphBFS/SnakesAndLadders.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
