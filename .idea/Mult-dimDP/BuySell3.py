@@ -1,9 +1,9 @@
 class Solution:
-    # minimum value for each subarray
+    # minimum value for each subarray (arr[begin:])
     def minimumIndex(self, price: list[int]) -> list[int]:
-        minimums = [price[0]];
+        minimums = [min(price)];
         for index in range(1, len(price)):
-            minimums.append(min(minimums[index-1], price[index]));
+            minimums.append(min(price[index:]));
         return minimums;
 
 
@@ -22,7 +22,7 @@ class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         maximum = 0;
         dp = self.createChart(prices);
-        for end1 in range(len(dp[0])):
+        for end1 in range(1, len(dp[0])):
             trans1 = dp[0][end1];
             beg2 = end1+1;
             for end2 in range(beg2+1, len(dp[0])):
@@ -33,3 +33,4 @@ class Solution:
 sol = Solution();
 grid = sol.createChart([3,3,5,0,0,3,1,4]);
 print(sol.maxProfit([3,3,5,0,0,3,1,4]));
+print(sol.maxProfit([1,2,3,4,5]));
