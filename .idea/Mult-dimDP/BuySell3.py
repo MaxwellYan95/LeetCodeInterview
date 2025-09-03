@@ -1,9 +1,14 @@
 class Solution:
     # minimum value for each subarray (arr[begin:])
+    # 2d minimum array
     def minimumIndex(self, price: list[int]) -> list[int]:
-        minimums = [min(price)];
-        for index in range(1, len(price)):
-            minimums.append(min(price[index:]));
+        minimums = [[float('inf') for i in range(len(price))] for j in range(len(price))];
+        for index in range(0, len(price)):
+            minimums[index][index] = price[index];
+        for begin in range(len(price)-1):
+            for end in range(begin+1, len(price)):
+                prevMin = minimums[begin][end-1];
+                minimums[begin][end] = min(prevMin, price[end]);
         return minimums;
 
 
@@ -14,7 +19,7 @@ class Solution:
         for begin in range(len(prices)-1):
             for end in range(begin+1, len(prices)):
                 prevDP = dp[begin][end-1];
-                curMinimum = minimums[begin];
+                curMinimum = minimums[begin][end];
                 dp[begin][end] = max(prices[end]-curMinimum, dp[begin][end-1]);
         return dp;
 
@@ -25,9 +30,12 @@ class Solution:
         for end1 in range(1, len(dp[0])):
             trans1 = dp[0][end1];
             beg2 = end1+1;
-            for end2 in range(beg2+1, len(dp[0])):
-                trans2 = dp[beg2][end2];
-                maximum = max(trans2+trans1, maximum);
+            if end1 == len(dp[0])-1:
+                maximum = max(trans1, maximum);
+            else:
+                for end2 in range(beg2+1, len(dp[0])):
+                    trans2 = dp[beg2][end2];
+                    maximum = max(trans2+trans1, maximum);
         return maximum;
 
 sol = Solution();
