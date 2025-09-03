@@ -30,15 +30,16 @@ class Solution:
                     else:
                         self.minMoves = min(self.minMoves, moves);
                     continue;
-                endBound = min(spot+6, len(line)-1);
-                endSpot = line[endBound];
-                for next in line[spot+1: endBound-1]:
-                    if next != -1:
+                endBound = min(spot+7, len(line));
+                forward = [spot+1, moves+1];
+                forwardSpot = spot+1;
+                for next in line[spot+1: endBound]:
+                    if next != -1 and next != spot:
                         heapq.heappush(bestSpot, [-next, moves+1]);
-                if endSpot == -1:
-                    heapq.heappush(bestSpot, [-endBound, moves+1]);
-                else:
-                    heapq.heappush(bestSpot, [-endSpot, moves+1]);
+                    else:
+                        forward[0] = -forwardSpot;
+                    forwardSpot += 1;
+                heapq.heappush(bestSpot, forward);
         bfs();
         return self.minMoves;
 
