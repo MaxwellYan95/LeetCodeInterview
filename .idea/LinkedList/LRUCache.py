@@ -40,23 +40,42 @@ class LRUCache:
         result = traverse(self.cache, self.cache.next);
         return result;
 
+    # removes last element
+    def removeLast(self):
+        if self.cache.next == None:
+            self.cache = None;
+        else:
+            traverse = self.cache;
+            for i in range(self.capacity-2):
+                traverse = traverse.next;
+            traverse.next = None;
 
+    # find key
+    def changeKey(self, key: int, value: int):
+        traverse = self.cache;
+        while traverse != None:
+            if traverse.key == key:
+                traverse.setValue(value);
+                return True;
+            traverse = traverse.next;
+        return False;
     def put(self, key: int, value: int) -> None:
         if self.cache == None:
             self.cache = Node(key, value);
             self.length += 1;
             return;
-        first = self.cache;
+        if self.changeKey(key, value):
+            return;
         if self.length == self.capacity:
-            traverse = self.cache;
-            for i in range(self.capacity-2):
-                traverse = traverse.next;
-            traverse.next = None;
+            self.removeLast();
         else:
             self.length += 1;
+        first = self.cache;
         self.cache = Node(key, value);
         self.cache.next = first;
 
 sol = LRUCache(1);
 sol.put(2, 1);
-print(sol.get(1));
+print(sol.get(2));
+sol.put(3, 2);
+print(sol.get(2));
