@@ -17,38 +17,34 @@ class Solution:
 
     def snakesAndLadders(self, board: list[list[int]]) -> int:
         line = self.gridToLine(board);
-        bestSpot = [];
-        visited = [];
-        heapq.heapify(bestSpot);
-        # first element is negative in order to create a max heap
-        heapq.heappush(bestSpot, [-1, 0])
-        self.minMoves = -1;
-        def bfs():
-            while bestSpot:
-                spot, moves = heapq.heappop(bestSpot);
-                spot = -spot;
-                if spot == len(line)-1:
-                    if self.minMoves == -1:
-                        self.minMoves = moves;
-                    else:
-                        self.minMoves = min(self.minMoves, moves);
-                    continue;
-                endBound = min(spot+7, len(line));
-                forward = [spot+1, moves+1];
-                forwardSpot = spot+1;
-                for next in line[spot+1: endBound]:
-                    if next != -1 and next not in visited:
-                        heapq.heappush(bestSpot, [-next, moves+1]);
-                        visited.append(next);
-                    else:
-                        forward[0] = -forwardSpot;
-                    forwardSpot += 1;
-                heapq.heappush(bestSpot, forward);
-        bfs();
-        return self.minMoves;
+        stack = collections.deque();
+        visited = [False for i in line];
+        visited[1] = True;
+        stack.append(1);
+        moves = 0;
+        final = len(line)-1;
+        while stack:
+            # Look at the possible moves you can make
+            for _ in range(len(stack)):
+                spot = stack.popleft();
+                if spot == final:
+                    return moves;
+                for dice in range(1, 7):
+                    next = spot + dice;
+                    if next > final:
+                        continue;
+                    if line[next] != -1:
+                        next = line[next];
+                    if visited[next] == False:
+                        visited[next] = True;
+                        stack.append(next);
+            moves += 1;
+        return -1;
+
 
 
 sol = Solution();
 print(sol.gridToLine([[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]))
 print(sol.snakesAndLadders([[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]))
 print(sol.snakesAndLadders([[-1,4,-1],[6,2,6],[-1,3,-1]]))
+print(sol.snakesAndLadders([[1,1,-1],[1,1,1],[-1,1,1]]))
