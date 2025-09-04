@@ -15,19 +15,20 @@ class Solution:
 
     def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode:
         indexDict = self.makeDict(inorder);
-        def recur(preorder: list[int], inorder: list[int]) -> TreeNode:
-            if (len(preorder) == 0):
+        self.index = 0;
+        def recur(start: int, end: int) -> TreeNode:
+            if start > end:
                 return None;
-            if (len(inorder) == 0):
-                return TreeNode(preorder[0]);
-            root = TreeNode(preorder[0]);
-            index = indexDict[preorder[0]];
-            leftTree = self.buildTree(preorder[1:], inorder[index+1:]);
-            rightTree = self.buildTree(preorder[2:], inorder[:index]);
-            root.left = leftTree;
-            root.right = rightTree;
-            return root;
-        return recur(preorder, inorder);
+            root_val = preorder[self.index];
+            # Keep track of index
+            # Doing preorder traversal
+            self.index += 1;
+            index = indexDict[root_val];
+            # Exclude part of the inorder list
+            left = recur(start, index-1);
+            right = recur(index+1, end);
+            return TreeNode(root_val, left, right);
+        return recur(0, len(preorder)-1);
 sol = Solution();
 tree = sol.buildTree([3,9,20,15,7], [9,3,15,20,7]);
 print();
