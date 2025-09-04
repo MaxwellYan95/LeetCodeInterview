@@ -1,26 +1,14 @@
 class Solution:
-    # minimum value for each subarray (arr[begin:])
-    # 2d minimum array
-    def minimumIndex(self, price: list[int]) -> list[int]:
-        minimums = [[float('inf') for i in range(len(price))] for j in range(len(price))];
-        for index in range(0, len(price)):
-            minimums[index][index] = price[index];
-        for begin in range(len(price)-1):
-            for end in range(begin+1, len(price)):
-                prevMin = minimums[begin][end-1];
-                minimums[begin][end] = min(prevMin, price[end]);
-        return minimums;
-
 
     # Max profit for one transactions
     def createChart(self, prices: list[int]) -> int:
-        minimums = self.minimumIndex(prices);
         dp = [[0 for j in range(len(prices))] for i in range(len(prices))];
         for begin in range(len(prices)-1):
+            minimum = prices[begin];
             for end in range(begin+1, len(prices)):
                 prevDP = dp[begin][end-1];
-                curMinimum = minimums[begin][end];
-                dp[begin][end] = max(prices[end]-curMinimum, dp[begin][end-1]);
+                dp[begin][end] = max(prices[end]-minimum, dp[begin][end-1]);
+                minimum = min(minimum, prices[end]);
         return dp;
 
 
