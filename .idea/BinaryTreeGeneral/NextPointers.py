@@ -9,9 +9,9 @@ class Node:
         self.next = next
 
 class Solution:
-    def connect(self, root: Node, level: int) -> Node:
+    def connect(self, root: Node) -> Node:
         stack = collections.deque();
-        def recur(root: Node):
+        def recur(root: Node, level: int):
             if root == None:
                 return None;
             rightTree = None;
@@ -20,7 +20,7 @@ class Solution:
                 return root;
             elif root.right == None:
                 leftTree = recur(root.left, level+1);
-                useStack([leftTree]);
+                useStack(leftTree);
             elif root.left == None:
                 rightTree = recur(root.right, level+1);
                 stack.append(rightTree);
@@ -37,7 +37,7 @@ class Solution:
                 cur.next = nextTree;
             else:
                 cur.next = None;
-        newRoot = recur(root);
+        newRoot = recur(root, 1);
         if newRoot != None:
             newRoot.next = None;
         return newRoot;
