@@ -230,7 +230,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/BinaryTreeGeneral/NextPointers.py</url>
-          <line>51</line>
+          <line>37</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
       </breakpoints>

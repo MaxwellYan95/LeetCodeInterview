@@ -10,37 +10,24 @@ class Node:
 
 class Solution:
     def connect(self, root: Node) -> Node:
-        stack = collections.deque();
-        def recur(root: Node, level: int):
-            if root == None:
-                return None;
-            rightTree = None;
-            leftTree = None;
-            if root.right == None and root.left == None:
-                return root;
-            elif root.right == None:
-                leftTree = recur(root.left, level+1);
-                useStack(leftTree);
-            elif root.left == None:
-                rightTree = recur(root.right, level+1);
-                stack.append(rightTree);
-            else:
-                rightTree = recur(root.right, level+1);
-                leftTree = recur(root.left, level+1);
-                leftTree.next = rightTree;
-                useStack(rightTree);
-            return Node(root.val, leftTree, rightTree);
+        if not root:
+            return None;
 
-        def useStack(cur: Node):
-            if len(stack) != 0:
-                nextTree = stack.popleft();
-                cur.next = nextTree;
-            else:
-                cur.next = None;
-        newRoot = recur(root, 1);
-        if newRoot != None:
-            newRoot.next = None;
-        return newRoot;
+        stack = collections.deque([root]);
+        while stack:
+            size = len(stack);
+            for i in range(size):
+                cur = stack.popleft();
+                if i < size-1:
+                    cur.next = stack[0]
+                if cur.left != None:
+                    stack.append(cur.left);
+                if cur.right != None:
+                    stack.append(cur.right);
+        return root;
+
+
+
 
 sol = Solution();
 five = Node(5);
