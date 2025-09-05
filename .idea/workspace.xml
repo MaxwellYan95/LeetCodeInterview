@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/BinaryTreeGeneral/Preorder_Inorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BinaryTreeGeneral/Preorder_Inorder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/BinaryTreeGeneral/NextPointers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,8 +220,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/BinaryTreeGeneral/Preorder_Inorder.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="121" />
+          <line>32</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/BinaryTreeGeneral/Preorder_Inorder.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/BinaryTreeGeneral/NextPointers.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/BinaryTreeGeneral/NextPointers.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/BinaryTreeGeneral/NextPointers.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="126" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
