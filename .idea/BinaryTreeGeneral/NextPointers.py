@@ -9,7 +9,7 @@ class Node:
         self.next = next
 
 class Solution:
-    def connect(self, root: Node) -> Node:
+    def connect(self, root: Node, level: int) -> Node:
         stack = collections.deque();
         def recur(root: Node):
             if root == None:
@@ -19,14 +19,14 @@ class Solution:
             if root.right == None and root.left == None:
                 return root;
             elif root.right == None:
-                leftTree = recur(root.left);
-                stack.append(leftTree);
+                leftTree = recur(root.left, level+1);
+                useStack([leftTree]);
             elif root.left == None:
-                rightTree = recur(root.right);
+                rightTree = recur(root.right, level+1);
                 stack.append(rightTree);
             else:
-                rightTree = recur(root.right);
-                leftTree = recur(root.left);
+                rightTree = recur(root.right, level+1);
+                leftTree = recur(root.left, level+1);
                 leftTree.next = rightTree;
                 useStack(rightTree);
             return Node(root.val, leftTree, rightTree);
@@ -43,11 +43,10 @@ class Solution:
         return newRoot;
 
 sol = Solution();
-seven = Node(7);
-three = Node(3, None, seven);
-four = Node(4);
 five = Node(5);
-two = Node(2, four, five)
+four = Node(4);
+three = Node(3, None, five);
+two = Node(2, four, None)
 one = Node(1, two, three);
 newOne = sol.connect(one);
 print();
