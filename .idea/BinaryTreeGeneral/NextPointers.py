@@ -11,31 +11,30 @@ class Node:
 class Solution:
     def connect(self, root: Node) -> Node:
         stack = collections.deque();
-        def addNext(cur: Node):
-            if len(stack) == 0:
-                cur.next = None;
-            else:
-                nextTree = stack.popleft();
-                cur.next = nextTree;
-                stack.append(cur);
         def recur(root: Node):
             if root == None:
                 return;
-            if root.right == None and root.left == None:
-                stack.append(root);
-                return root;
             rightTree = None;
             leftTree = None;
+            if root.right == None and root.left == None:
+                return root;
             if root.right != None:
                 rightTree = recur(root.right);
-                addNext(rightTree);
-                stack.append(rightTree);
+                if len(stack) != 0:
+                    nextTree = stack.popleft();
+                    rightTree.next = nextTree;
+                else:
+                    rightTree.next = None;
             if root.left != None:
                 leftTree = recur(root.left);
-                addNext(leftTree);
+            if rightTree == None:
+                leftTree.next = None;
                 stack.append(leftTree);
-            addNext(root);
-            return root;
+            else:
+                leftTree.next = rightTree;
+                rightTree.next = None;
+                stack.append(leftTree);
+            return Node(root.val, leftTree, rightTree);
         return recur(root);
 
 sol = Solution();
