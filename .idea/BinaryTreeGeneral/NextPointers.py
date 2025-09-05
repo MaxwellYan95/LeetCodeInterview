@@ -13,25 +13,22 @@ class Solution:
         stack = collections.deque();
         def recur(root: Node):
             if root == None:
-                return;
+                return None;
             rightTree = None;
             leftTree = None;
             if root.right == None and root.left == None:
                 return root;
             elif root.right == None:
                 leftTree = recur(root.left);
-                useStack(leftTree);
                 stack.append(leftTree);
             elif root.left == None:
                 rightTree = recur(root.right);
-                useStack(rightTree);
                 stack.append(rightTree);
             else:
-                leftTree = recur(root.left);
                 rightTree = recur(root.right);
-                useStack(rightTree);
+                leftTree = recur(root.left);
                 leftTree.next = rightTree;
-                useStack(leftTree);
+                useStack(rightTree);
             return Node(root.val, leftTree, rightTree);
 
         def useStack(cur: Node):
@@ -40,7 +37,10 @@ class Solution:
                 cur.next = nextTree;
             else:
                 cur.next = None;
-        return recur(root);
+        newRoot = recur(root);
+        if newRoot != None:
+            newRoot.next = None;
+        return newRoot;
 
 sol = Solution();
 seven = Node(7);
