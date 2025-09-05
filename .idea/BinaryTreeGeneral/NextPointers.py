@@ -18,23 +18,28 @@ class Solution:
             leftTree = None;
             if root.right == None and root.left == None:
                 return root;
-            if root.right != None:
-                rightTree = recur(root.right);
-                if len(stack) != 0:
-                    nextTree = stack.popleft();
-                    rightTree.next = nextTree;
-                else:
-                    rightTree.next = None;
-            if root.left != None:
+            elif root.right == None:
                 leftTree = recur(root.left);
-            if rightTree == None:
-                leftTree.next = None;
+                useStack(leftTree);
                 stack.append(leftTree);
+            elif root.left == None:
+                rightTree = recur(root.right);
+                useStack(rightTree);
+                stack.append(rightTree);
             else:
+                leftTree = recur(root.left);
+                rightTree = recur(root.right);
+                useStack(rightTree);
                 leftTree.next = rightTree;
-                rightTree.next = None;
-                stack.append(leftTree);
+                useStack(leftTree);
             return Node(root.val, leftTree, rightTree);
+
+        def useStack(cur: Node):
+            if len(stack) != 0:
+                nextTree = stack.popleft();
+                cur.next = nextTree;
+            else:
+                cur.next = None;
         return recur(root);
 
 sol = Solution();
