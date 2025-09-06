@@ -23,13 +23,16 @@ class LRUCache:
 
     def get(self, key: int) -> int:
         traverse = self.front;
-
-
-    def deleteTest(self, k: int):
-        traverse = self.front;
-        for i in range(k):
+        result = -1;
+        for i in range(self.length):
+            if traverse.key == key:
+                result = traverse.value;
+                break;
             traverse = traverse.next;
-        self.delete(traverse);
+        if result != -1:
+            self.add(key, result);
+            self.delete(traverse);
+        return result;
 
     def delete(self, location: Node):
         location.prev.next = location.next;
