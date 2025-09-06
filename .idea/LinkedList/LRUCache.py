@@ -20,13 +20,18 @@ class LRUCache:
         if self.front == None:
             self.front = Node(key, value);
             self.back = self.front;
-        else:
+            self.front.next = self.back;
+            self.front.prev = self.back;
+            self.length += 1;
+        elif self.length != self.capacity:
             oldFront = self.front;
             self.front = Node(key, value);
             oldFront.prev = self.front;
             self.front.next = oldFront;
             self.back.next = self.front;
             self.front.prev = self.back;
+            self.length += 1;
+
 
 
 sol = LRUCache(2);
