@@ -1,29 +1,19 @@
+import heapq;
 class Solution:
     def kSmallestPairs(self, nums1: list[int], nums2: list[int], k: int) -> list[list[int]]:
-        index1 = 0;
-        index2 = 0;
-        if k == 0:
-            return [[]]
-        pairs = [[nums1[index1], nums2[index2]]];
-        counter = 1;
-        while True:
-            if counter == k:
-                break;
-
-            if nums1[index1+1]+nums2[index2] < nums1[index1]+nums2[index2+1]:
-                pairs.append([nums1[index1+1], nums2[index2]]);
-                index1 = index1 + 1;
-            else:
-                pairs.append([nums1[index1], nums2[index2+1]]);
-                index2 = index2 + 1;
-            if index1 == len(nums1)-1:
-                index1 = 0;
-                index2 = index2 + 1;
-            if index2 == len(nums2)-1:
-                index2 = 0;
-                index1 = index1 + 1;
-        counter = counter + 1;
-        return pairs;
+        h = [];
+        result = [];
+        kCounter = 1;
+        heapq.heapify(h);
+        heapq.heappush(h, [nums1[0]+nums2[0], 0, 0]);
+        while kCounter < k and h:
+            sum, i, j = heapq.heappop(h);
+            result.append([nums1[i], nums2[j]]);
+            if i+1 < len(nums1):
+                heapq.heappush(h, [nums1[i+1]+nums2[j], i+1, j]);
+            if j+1 < len(nums2):
+                heapq.heappush(h, [nums1[i]+nums2[j+1], i, j+1]);
+        return result;
 
 sol = Solution();
-print(sol.kSmallestPairs([1,7,11], [2,4,6], 7));
+print(sol.kSmallestPairs([1,2,4,5,6], [3,5,7,9], 20));
