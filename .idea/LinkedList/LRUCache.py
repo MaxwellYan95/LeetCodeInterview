@@ -13,8 +13,6 @@ class LRUCache:
         self.capacity = capacity;
         self.length = 0;
 
-    #def get(self, key: int) -> int:
-
 
     def put(self, key: int, value: int) -> None:
         if self.front == None:
@@ -31,6 +29,25 @@ class LRUCache:
             self.back.next = self.front;
             self.front.prev = self.back;
             self.length += 1;
+        else:
+            contained = self.get(key);
+            if contained != -1:
+                self.front.value = value;
+            else:
+                self.front = self.front.prev;
+                self.back = self.back.prev;
+                self.front.key = key;
+                self.front.value = value;
+
+    def get(self, key: int) -> int:
+        for i in range(self.capacity):
+            if self.front.key == key:
+                return self.front.value;
+            else:
+                self.front = self.front.next;
+                self.back = self.back.next;
+        return -1;
+
 
 
 
