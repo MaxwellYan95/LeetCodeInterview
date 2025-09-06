@@ -4,7 +4,7 @@ class Solution:
         h = [];
         result = [];
         kCounter = 0;
-        visited = [];
+        visited = set();
         heapq.heapify(h);
         heapq.heappush(h, [nums1[0]+nums2[0], 0, 0]);
         visited.append((0, 0));
