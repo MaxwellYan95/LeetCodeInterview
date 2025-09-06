@@ -19,18 +19,16 @@ class LRUCache:
     def put(self, key: int, value: int) -> None:
         if self.front == None:
             self.front = Node(key, value);
-            self.back = Node(key, value);
-            self.front.next = self.back;
-            self.front.prev = self.back;
-            self.back.next = self.front;
-            self.back.prev = self.front;
+            self.back = self.front;
         else:
             oldFront = self.front;
             self.front = Node(key, value);
+            oldFront.prev = self.front;
             self.front.next = oldFront;
-            self.front.prev = self.back;
+
 
 sol = LRUCache(2);
 sol.put(2, 1);
 sol.put(3, 2);
-
+sol.put(5, 4);
+print();
