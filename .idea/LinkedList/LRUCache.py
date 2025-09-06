@@ -25,6 +25,8 @@ class LRUCache:
             self.front = Node(key, value);
             oldFront.prev = self.front;
             self.front.next = oldFront;
+            self.back.next = self.front;
+            self.front.prev = self.back;
 
 
 sol = LRUCache(2);
