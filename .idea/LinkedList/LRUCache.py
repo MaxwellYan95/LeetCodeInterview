@@ -18,30 +18,34 @@ class LRUCache:
         getVal = self.get(key);
         if getVal != -1:
             self.front.value = value;
-            return;
-        self.add(key, value);
-        if self.length > self.capacity:
-            self.delete(self.back);
-            self.back = self.back.prev;
+        else:
+            self.add(key, value);
+            if self.length > self.capacity:
+                self.delete(self.back);
 
 
     def get(self, key: int) -> int:
         traverse = self.front;
-        result = -1;
         for i in range(self.length):
             if traverse.key == key:
                 result = traverse.value;
-                break;
+                self.add(key, result);
+                self.delete(traverse);
+                return result;
             traverse = traverse.next;
-        if result != -1:
-            self.add(key, result);
-            self.delete(traverse);
-        return result;
+        return -1;
 
     def delete(self, location: Node):
-        location.prev.next = location.next;
-        location.next.prev = location.prev;
+        oldKey = location.key;
+        previous = location.prev;
+        nextOne = location.next;
+        previous.next = location.next;
+        nextOne.prev = location.prev;
         self.length -= 1;
+        if oldKey == self.back.key:
+            self.end = self.end.prev;
+        if oldKey == self.front.key:
+            self.front = self.front.next;
 
     def add(self, key: int, value: int):
         if self.front == None:
@@ -49,7 +53,6 @@ class LRUCache:
             self.back = self.front;
             self.front.next = self.back;
             self.front.prev = self.back;
-            self.length += 1;
         else:
             oldFront = self.front;
             self.front = Node(key, value);
@@ -57,7 +60,7 @@ class LRUCache:
             self.front.next = oldFront;
             self.back.next = self.front;
             self.front.prev = self.back;
-            self.length += 1;
+        self.length += 1;
 
 
 
