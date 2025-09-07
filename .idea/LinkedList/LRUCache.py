@@ -15,6 +15,10 @@ class LRUCache:
 
 
     def put(self, key: int, value: int) -> None:
+        getVal = self.get(key);
+        if getVal != -1:
+            self.front.value = value;
+            return;
         self.add(key, value);
         if self.length > self.capacity:
             self.delete(self.back);
@@ -58,11 +62,13 @@ class LRUCache:
 
 
 
-sol = LRUCache(3);
+sol = LRUCache(2);
 sol.put(1, 1);
 sol.put(2, 2);
+print(sol.get(1));
 sol.put(3, 3);
+print(sol.get(2));
 sol.put(4, 4);
-sol.put(5, 5);
-sol.deleteTest(1);
-sol.deleteTest(0);
+print(sol.get(1));
+print(sol.get(3));
+print(sol.get(4));
