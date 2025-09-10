@@ -3,37 +3,32 @@ import collections
 
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: list[str]) -> int:
-        moves = 0;
-        stack = collections.deque([beginWord]);
-        visited = [];
+        steps = 0;
         if endWord not in wordList:
-            return 0;
+            return steps;
+        stack = collections.deque();
+        stack.append(beginWord);
+        wordList = set(wordList);
+        visited = [];
         while stack:
             for _ in range(len(stack)):
                 word = stack.popleft();
-                visited.append(word);
+                if word == endWord:
+                    return steps + 1;
                 if word in wordList:
                     wordList.remove(word);
-                if word == endWord:
-                    return moves + 1;
-                adjacent = []
                 for w in wordList:
                     if self.canTransform(w, word) and w not in visited:
                         stack.append(w);
-                        adjacent.append(w);
-                for adj in adjacent:
-                    wordList.remove(adj);
-            moves += 1;
+                        visited.append(w);
+            steps += 1;
         return 0;
 
-
-    def canTransform(self, first: str, second: str):
-        firstList = list(first);
-        secondList = list(second);
+    def canTransform(self, word1: str, word2: str):
         changes = 0;
-        for index in range(len(firstList)):
-            if firstList[index] != secondList[index]:
-                changes = changes + 1;
+        for index in range(len(word1)):
+            if word2[index] != word1[index]:
+                changes += 1;
         return changes == 1;
 
 sol = Solution();
