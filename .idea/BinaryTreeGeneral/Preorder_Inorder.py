@@ -1,3 +1,4 @@
+import collections
 from collections import defaultdict;
 
 # Definition for a binary tree node.
@@ -7,28 +8,27 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
+
     def makeDict(self, inorder: list[int]):
         indexDict = defaultdict(int);
-        for index in range(len(inorder)):
-            indexDict[inorder[index]] = index;
+        for i in range(len(inorder)):
+            indexDict[inorder[i]] = i;
         return indexDict;
 
     def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode:
         indexDict = self.makeDict(inorder);
-        self.index = 0;
+        self.i = 0;
         def recur(start: int, end: int) -> TreeNode:
             if start > end:
                 return None;
-            root_val = preorder[self.index];
-            # Keep track of index
-            # Doing preorder traversal
-            self.index += 1;
-            index = indexDict[root_val];
-            # Exclude part of the inorder list
+            value = preorder[self.i]
+            self.i += 1;
+            index = indexDict[value];
             left = recur(start, index-1);
             right = recur(index+1, end);
-            return TreeNode(root_val, left, right);
-        return recur(0, len(preorder)-1);
+            return TreeNode(value, left, right);
+        return recur(0, len(preorder)-1)
+
 sol = Solution();
 tree = sol.buildTree([3,9,20,15,7], [9,3,15,20,7]);
 print();
