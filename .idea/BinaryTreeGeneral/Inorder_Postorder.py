@@ -25,15 +25,17 @@ class Solution:
                 return TreeNode(value);
             rightTree = None;
             leftTree = None;
+            self.index = self.index-1;
             if self.index >= 0:
-                self.index = self.index-1;
                 rightTree = recur(inorder[nextIndex+1:], nextIndex+1);
+            self.index = self.index-1;
             if self.index >= 0:
-                self.index = self.index-1;
                 leftTree = recur(inorder[:nextIndex], -nextIndex+1);
             return TreeNode(value, leftTree, rightTree);
         return recur(inorder, 0);
 
 sol = Solution();
-result = sol.buildTree([9,3,15,20,7], [9,15,7,20,3]);
+result1 = sol.buildTree([9,3,15,20,7], [9,15,7,20,3]);
+result2 = sol.buildTree([2,1], [2,1]);
+
 print();
