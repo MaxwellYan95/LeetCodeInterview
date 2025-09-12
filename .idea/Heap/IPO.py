@@ -1,17 +1,34 @@
+import collections
+
+
 class Solution:
     def findMaximizedCapital(self, k: int, w: int, profits: list[int], capital: list[int]) -> int:
-        if k == 0:
-            return w;
-        if len(profits) == 0 or len(capital) == 0:
-            return w;
-        canBuy = (capital[0] <= w);
-        buy = -1;
-        notBuy = -1;
-        if canBuy:
-            curProfit = profits[0]
-            buy = self.findMaximizedCapital(k-1, w+curProfit, profits[1:], capital[1:]);
-        notBuy = self.findMaximizedCapital(k, w, profits[1:], capital[1:]);
-        return max(notBuy, buy);
+        stack = collections.deque();
+        curW = w;
+        curK = 0;
+        maximum = 0;
+        for index in range(len(profits)):
+            curProfit = profits[index];
+            capRequire = capital[index];
+            if curK == k:
+                freeUp = collections.pop();
+                curW -= freeUp;
+                curK -= 1;
+                while curW >= capRequire:
+                    freeUp = collections.pop();
+                    curW -= freeUp;
+                    curK -= 1;
+                stack.append(freeUp);
+                curW += freeUp;
+                curK += 1;
+            if curW >= capRequire:
+                stack.append(curProfit);
+                curW += curProfit;
+                curK += 1;
+                maximum = max(curW, maximum);
+        return maximum;
+
+
 
 sol = Solution();
 print(sol.findMaximizedCapital(1, 2, [1, 2, 3], [1, 1, 2]));
