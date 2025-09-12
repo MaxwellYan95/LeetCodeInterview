@@ -11,17 +11,17 @@ class Solution:
             curProfit = profits[index];
             capRequire = capital[index];
             if curK == k:
-                freeUp = collections.pop();
-                curW -= freeUp;
-                curK -= 1;
-                while curW >= capRequire:
-                    freeUp = collections.pop();
+                insideLoop = False;
+                while curW > capRequire and stack:
+                    insideLoop = True;
+                    freeUp = stack.pop();
                     curW -= freeUp;
                     curK -= 1;
-                stack.append(freeUp);
-                curW += freeUp;
-                curK += 1;
-            if curW >= capRequire:
+                if insideLoop and curW < capRequire:
+                    stack.append(freeUp);
+                    curW += freeUp;
+                    curK += 1;
+            if curW >= capRequire and curK < k:
                 stack.append(curProfit);
                 curW += curProfit;
                 curK += 1;
@@ -31,5 +31,5 @@ class Solution:
 
 
 sol = Solution();
-print(sol.findMaximizedCapital(1, 2, [1, 2, 3], [1, 1, 2]));
+print(sol.findMaximizedCapital(2, 0, [1,2,3], [0,1,1]));
 print();
