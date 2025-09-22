@@ -2,13 +2,17 @@ from collections import defaultdict;
 
 class Solution:
     def solveLine(self, p1: list[int], p2: list[int]):
+        m = 0;
         if p2[0]-p1[0] == 0:
-            return None;
-        m = float((p2[1]-p1[1])/(p2[0]-p1[0]))
+            return (float('inf'), p2[0]);
+        else:
+            m = float((p2[1]-p1[1])/(p2[0]-p1[0]))
         b = p2[1] - m*p2[0];
         return (m, b);
 
     def maxPoints(self, points: list[list[int]]) -> int:
+        if len(points) <= 1:
+            return len(points);
         pointDict = defaultdict(list);
         points.sort();
         for i1 in range(len(points)-1):
@@ -27,4 +31,4 @@ class Solution:
         return maximum;
 
 sol = Solution();
-print(sol.maxPoints([[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]));
+print(sol.maxPoints([[0, 0],[0,1]]));
