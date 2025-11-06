@@ -1,37 +1,45 @@
-import collections
-
+from collections import defaultdict
+from collections import deque;
 
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: list[str]) -> int:
-        steps = 0;
         if endWord not in wordList:
-            return steps;
-        stack = collections.deque();
-        stack.append(beginWord);
-        wordList = set(wordList);
-        visited = [];
-        while stack:
-            for _ in range(len(stack)):
-                word = stack.popleft();
-                if word == endWord:
-                    return steps + 1;
-                if word in wordList:
-                    wordList.remove(word);
-                for w in wordList:
-                    if self.canTransform(w, word) and w not in visited:
-                        stack.append(w);
-                        visited.append(w);
-            steps += 1;
+            return 0;
+        tempList = wordList.copy();
+        tempList.append(beginWord)
+        transDict = self.createDict(set(tempList));
+        visited = set();
+        myStack = deque();
+        numPath = 1;
+        myStack.append(beginWord);
+        visited.add(beginWord);
+        while len(myStack) != 0:
+            latest = myStack.pop();
+            if latest == endWord:
+                return numPath;
+            neighbors = transDict[latest];
+            for neigh in neighbors:
+                if neigh not in visited:
+                    visited.add(neigh);
+                    myStack.append(neigh);
+            numPath += 1;
+
         return 0;
 
-    def canTransform(self, word1: str, word2: str):
+    def createDict(self, wordList: list[str]):
+        dictionary = defaultdict(list)
+        for word1 in wordList:
+            for word2 in wordList:
+                if self.canTransform(word1, word2):
+                    dictionary[word1].append(word2);
+        return dictionary;
+
+    def canTransform(self, begin: str, end: str):
         changes = 0;
-        for index in range(len(word1)):
-            if word2[index] != word1[index]:
-                changes += 1;
+        for i in range(len(begin)):
+            if begin[i] != end[i]:
+                changes = changes + 1;
         return changes == 1;
 
 sol = Solution();
-print(sol.ladderLength("hit", "cog", ["hot","dot","dog","lot","log","cog"]));
-print(sol.ladderLength("hot", "dog", ["hot","dog"]));
-print(sol.ladderLength("a", "c", ["a","b", "c"]));
+print(sol.ladderLength("hit", "cog", ["hot","cog","dot","dog","hit","lot","log"]));
