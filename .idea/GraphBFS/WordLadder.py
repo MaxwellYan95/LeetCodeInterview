@@ -17,7 +17,6 @@ class Solution:
                 latest = myStack.popleft();
                 if latest == endWord:
                     return numPath;
-                neighbors = transDict[latest];
                 for word in wordList:
                     if word not in visited and self.canTransform(word, latest):
                         visited.add(word);
