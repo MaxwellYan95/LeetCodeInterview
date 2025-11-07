@@ -2,14 +2,13 @@ import math
 
 class Solution:
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        i1 = (len(nums1))//2
-        i2 = (len(nums2))//2
-        left1 = -(math.inf-1);
-        right1 = math.inf;
-        left2 = -(math.inf-1);
-        right2 = math.inf;
-        inBounds = True;
-        while True:
+        nums1.insert(0, -(math.inf-1));
+        nums2.insert(0, -(math.inf-1));
+        nums1.append(math.inf)
+        nums2.append(math.inf)
+        i1 = (len(nums1)-1)//2;
+        i2 = (len(nums2)-1)//2;
+        while i1 < len(nums1)-1 or i2 < len(nums2)-1 or i1 > 0 or i2 > 0:
             left1 = nums1[i1];
             right1 = nums1[i1+1];
             left2 = nums2[i2];
