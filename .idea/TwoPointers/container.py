@@ -1,16 +1,16 @@
-def maxArea(height: list[int]) -> int:
-    small = 0;
-    big = len(height)-1;
-    area = 0;
-    while big > small:
-        area = max(area, (big - small) * min(height[small], height[big]))
-        if (height[big] < height[small]):
-            big = big - 1;
-        else:
-            small = small + 1;
-    return area;
+class Solution:
 
-h = [1,8,6,2,5,4,8,3,7]
-maxArea(h)
+    def maxArea(self, height: list[int]) -> int:
+        p1 = 0;
+        p2 = len(height)-1;
+        area = 0;
+        while p1 < p2:
+            newArea = (p2-p1)*(min(height[p1], height[p2]));
+            area = max(area, newArea);
+            if height[p1] < height[p2]:
+                p1 = p1+1;
+            else:
+                p2 = p2-1;
+        return area;
 
 
