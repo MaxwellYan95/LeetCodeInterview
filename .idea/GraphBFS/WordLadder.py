@@ -7,32 +7,23 @@ class Solution:
             return 0;
         tempList = wordList.copy();
         tempList.append(beginWord)
-        transDict = self.createDict(set(tempList));
         visited = set();
         myStack = deque();
         numPath = 1;
         myStack.append(beginWord);
         visited.add(beginWord);
         while len(myStack) != 0:
-            latest = myStack.pop();
-            if latest == endWord:
-                return numPath;
-            neighbors = transDict[latest];
-            for neigh in neighbors:
-                if neigh not in visited:
-                    visited.add(neigh);
-                    myStack.append(neigh);
+            for _ in range(len(myStack)):
+                latest = myStack.popleft();
+                if latest == endWord:
+                    return numPath;
+                neighbors = transDict[latest];
+                for word in wordList:
+                    if word not in visited and self.canTransform(word, latest):
+                        visited.add(word);
+                        myStack.append(word);
             numPath += 1;
-
         return 0;
-
-    def createDict(self, wordList: list[str]):
-        dictionary = defaultdict(list)
-        for word1 in wordList:
-            for word2 in wordList:
-                if self.canTransform(word1, word2):
-                    dictionary[word1].append(word2);
-        return dictionary;
 
     def canTransform(self, begin: str, end: str):
         changes = 0;
