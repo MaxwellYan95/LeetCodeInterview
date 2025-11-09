@@ -14,14 +14,10 @@ class Solution:
             isIndex = True
             for i in range(0, len(window), wordLen):
                 curWord = window[i: i+wordLen];
-                if curWord not in words:
+                curDict[curWord] += 1;
+                if curDict[curWord] > wordDict[curWord]:
                     isIndex = False
                     break;
-                else:
-                    curDict[curWord] += 1;
-                    if curDict[curWord] > wordDict[curWord]:
-                        isIndex = False
-                        break;
             if isIndex:
                 indices.append(index)
         return indices
