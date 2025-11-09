@@ -2,7 +2,7 @@ import statistics
 import sys
 
 class Solution:
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
         lower = 0;
         upper = 1;
         total = 0;
