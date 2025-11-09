@@ -1,38 +1,31 @@
+from collections import defaultdict
 class Solution:
 
     def findSubstring(self, s: str, words: list[str]) -> list[int]:
-        if len(words) == 1 and s == words[0]:
-            return [0];
-        wordLength = len(words[0])
-        indices = [];
-        index = 0;
-        while True:
-            if index+wordLength >= len(s):
-                break;
-            if s[index: index+wordLength] in words:
-                sub = self.getSubstr(s[index:], words, wordLength)
-                if sub == True:
-                    indices.append(index);
-            index += 1;
-        return indices;
-
-
-    def getSubstr(self, s: str, words: list[str], wordLen: int) -> bool:
-        tempWords = words.copy();
-        index = 0;
-        wordConcat = ""
+        wordDict = defaultdict(int)
         for w in words:
-            wordConcat += (w + "");
-        if s[0: index+len(wordConcat)] == wordConcat:
-            return True;
-        while True:
-            if len(tempWords) == 0:
-                return True;
-            if s[0: index+wordLen] in tempWords:
-                tempWords.remove(s[0: index+wordLen])
-                s = s[index+wordLen: ]
-            else:
-                return False;
+            wordDict[w] += 1;
+        wordLen = len(words[0]);
+        windowSize = len(words[0])*len(words);
+        indices = []
+        for index in range(0, len(s)-windowSize+1):
+            window = s[index: index+windowSize];
+            curDict = defaultdict(int)
+            isIndex = True
+            for i in range(0, len(window), wordLen):
+                curWord = window[i: i+wordLen];
+                if curWord not in words:
+                    isIndex = False
+                    break;
+                else:
+                    curDict[curWord] += 1;
+                    if curDict[curWord] > wordDict[curWord]:
+                        isIndex = False
+                        break;
+            if isIndex:
+                indices.append(index)
+        return indices
+
 
 
 
@@ -40,7 +33,7 @@ sol = Solution();
 print(sol.findSubstring("barfoothefoobarman", ["foo","bar"]))
 print(sol.findSubstring("barfoofoobarthefoobarman", ["bar","foo","the"]))
 
-print(sol.findSubstring("wordgoodgoodgoodbestword", ["word","good","best","word"]))
+print(sol.findSubstring("wordgoodgoodgoodbestword", ["word","good","best","good"]))
 print(sol.findSubstring("aaaaaaaaaaaaaa", ["aa","aa"]))
 print(sol.findSubstring("a", ["a"]))
 print(sol.findSubstring("abababab", ["a","b", "a"]))
