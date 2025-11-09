@@ -3,16 +3,23 @@ import sys
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: list[int]) -> int:
-        left = 0;
-        sum = 0;
+        lower = 0;
+        upper = 1;
+        total = 0;
         minLen = sys.maxsize;
-        for right in range(len(nums)):
-            sum += nums[right];
-            while sum >= target:
-                minLen = min(minLen, right-left+1);
-                sum -= nums[left];
-                left += 1;
+        while lower != upper and upper < len(nums):
+            window = nums[lower:upper];
+            total = sum(window)
+            if total < target:
+                upper += 1
+            else:
+                minLen = min(upper-lower, minLen)
+                lower += 1
         if minLen == sys.maxsize:
             return 0;
         return minLen;
+
+sol = Solution()
+print(sol.minSubArrayLen(7, [2,3,1,2,4,3]))
+
 
