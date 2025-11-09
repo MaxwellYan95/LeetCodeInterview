@@ -7,19 +7,21 @@ class Solution:
         upper = 1;
         total = 0;
         minLen = sys.maxsize;
-        while lower != upper and upper < len(nums):
+        while lower != upper and upper <= len(nums):
             window = nums[lower:upper];
-            total = sum(window)
             if total < target:
+                total += nums[upper-1]
                 upper += 1
             else:
-                minLen = min(upper-lower, minLen)
-                lower += 1
+                while total >= target and lower != upper:
+                    minLen = min(upper-lower, minLen)
+                    total -= nums[lower]
+                    lower += 1
         if minLen == sys.maxsize:
             return 0;
         return minLen;
 
 sol = Solution()
-print(sol.minSubArrayLen(7, [2,3,1,2,4,3]))
+print(sol.minSubArrayLen(4, [1,4,4]))
 
 

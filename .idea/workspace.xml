@@ -294,18 +294,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/SlidingWindow/MinSizeSubarray.py</url>
-          <line>22</line>
+          <line>24</line>
           <option name="timeStamp" value="188" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/SlidingWindow/MinSizeSubarray.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="190" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/SlidingWindow/MinSizeSubarray.py</url>
           <line>11</line>
-          <option name="timeStamp" value="191" />
+          <option name="timeStamp" value="192" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
