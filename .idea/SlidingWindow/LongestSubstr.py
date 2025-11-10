@@ -1,14 +1,12 @@
-def lengthOfLongestSubstring(s: str) -> int:
-    sList = list(s)
-    longest = ""
-    lengths = []
-    for char in sList:
-        if char in list(longest):
-            lengths.append(len(longest))
-            ind = list(longest).index(char)
-            longest = "".join(list(longest)[ind+1: len(longest)])
-        longest = ("" + longest + str(char))
-    lengths.append(len(longest))
-    return sorted(lengths, reverse=True)[0]
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        sList = list(s)
+        maxLen = 0;
+        lower = 0;
+        for upper in range(len(sList)):
+            curS = s[upper];
+            while curS in s[lower:upper]:
+                lower += 1;
+            maxLen = max(maxLen, upper-lower+1);
+        return maxLen;
 
-print(lengthOfLongestSubstring("abcabcc"))
