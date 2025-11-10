@@ -1,25 +1,25 @@
 import heapq;
 class Solution:
     def kSmallestPairs(self, nums1: list[int], nums2: list[int], k: int) -> list[list[int]]:
-        minH = [[nums2[0]+nums1[0], (0, 0)]]
-        visited = set()
-        results = []
-        visited.add((0, 0))
+        minH = []
         heapq.heapify(minH)
-        while len(results) != k:
-            total, coord = heapq.heappop(minH)
-            i1 = coord[0]
-            i2 = coord[1]
-            results.append([nums1[i1], nums2[i2]])
-            bounds1 = (i1+1) < len(nums1)
-            bounds2 = (i2+1) < len(nums2)
-            if (i1+1, i2) not in visited and bounds1:
-                heapq.heappush(minH, [nums2[i2]+nums1[i1+1], (i1+1, i2)])
+        heapq.heappush(minH, [nums1[0]+nums2[0], (0, 0)]);
+        results = []
+        visited = set();
+        visited.add((0,0))
+        while len(minH) != 0 and len(results) != k:
+            total, indices = heapq.heappop(minH);
+            i1 = indices[0];
+            i2 = indices[1];
+            results.append([nums1[i1], nums2[i2]]);
+            if i1+1 < len(nums1) and (i1+1, i2) not in visited:
+                heapq.heappush(minH, [nums1[i1+1]+nums2[i2], (i1+1, i2)]);
                 visited.add((i1+1, i2))
-            if (i1, i2+1) not in visited and bounds2:
-                heapq.heappush(minH, [nums2[i2+1]+nums1[i1], (i1, i2+1)])
+            if i2+1 < len(nums2) and (i1, i2+1) not in visited:
+                heapq.heappush(minH, [nums1[i1]+nums2[i2+1], (i1, i2+1)]);
                 visited.add((i1, i2+1))
         return results
+
 
 
 
