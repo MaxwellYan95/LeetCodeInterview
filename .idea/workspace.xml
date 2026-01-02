@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/Atoi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/IntToEnglish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/RegEx(NOT_DONE).py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/RegEx(10)(NOT_DONE).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -304,14 +305,24 @@
           <option name="timeStamp" value="189" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/RegEx(NOT_DONE).py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/RegEx(10)(NOT_DONE).py</url>
           <line>38</line>
           <option name="timeStamp" value="190" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/Atoi.py</url>
-          <line>55</line>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/Atoi(8).py</url>
+          <line>52</line>
           <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/IntToEnglish.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/IntToEnglish.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="194" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
