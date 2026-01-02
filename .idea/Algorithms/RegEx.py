@@ -25,7 +25,7 @@ class Solution:
                         matrix[x][y] = matrix[x-1][y-1];
                 elif p[y] == '*':
                     if (x-1 < 0):
-                        matrix[x][y] = False;
+                        matrix[x][y] = True;
                     else:
                         matrix[x][y] = matrix[x-1][y];
                 elif p[y] == s[x]:
@@ -37,4 +37,4 @@ class Solution:
 
 
 sol = Solution();
-print(sol.simplifyEx("*.**..aaa..***.*..*"))
+print(sol.isMatch("aa", "a*"))
