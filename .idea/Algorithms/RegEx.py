@@ -1,43 +1,40 @@
 class Solution:
-    # def isMatch(self, s: str, p: str) -> bool:
+    def isMatch(self, s: str, p: str) -> bool:
+        matrix = [[False for inner in range(len(p))] for out in range(len(s))];
 
+        # Initializes matrix[0][0]
+        if p[0] == '*' or p[0] == '.' or p[0] == s[0]:
+            matrix[0][0] = True;
+        else:
+            return False;
 
-    # Examples
-    # 1. Changes .*.. to ...*
-    # 2. Changes **. to .*
-    def simplifyEx(self, p: str) -> str:
-        newP = "";
-        lstP = list(p);
-        index = 0;
-        while index < len(lstP):
-            curP = lstP[index];
-            periods = 0;
-            hasStar = False;
-            if self.isReg(curP):
-                while (self.isReg(curP) and index < len(lstP)):
-                    if self.isPeriod(curP):
-                        periods += 1;
-                    elif self.isStar(curP):
-                        hasStar = True;
-                    index += 1;
-                    curP = lstP[min(index, len(lstP)-1)];
-                for p in range(periods):
-                    newP += (".");
-                if hasStar:
-                    newP += ("*")
+        # Initializes matrix[0][s]
+        for x in range(1, len(s)):
+            if p[0] == '*':
+                matrix[x][0] = True;
             else:
-                newP += (curP + "")
-                index += 1;
-        return newP;
+                matrix[x][0] = False;
+        for x in range(len(s)):
+            for y in range(1, len(p)):
+                if y == 0 and x == 0:
+                    continue;
+                elif p[y] == '.':
+                    if (x-1 < 0):
+                        matrix[x][y] = False;
+                    else:
+                        matrix[x][y] = matrix[x-1][y-1];
+                elif p[y] == '*':
+                    if (x-1 < 0):
+                        matrix[x][y] = False;
+                    else:
+                        matrix[x][y] = matrix[x-1][y];
+                elif p[y] == s[x]:
+                    matrix[x][y] = matrix[x][y-1];
+                else:
+                    matrix[x][y] = false;
+        return matrix[len(s)-1][len(p)-1]
 
-    def isStar(self, p: str) -> bool:
-        return p == '*';
 
-    def isPeriod(self, p: str) -> bool:
-        return p == '.';
-
-    def isReg(self, p: str) -> bool:
-        return self.isStar(p) or self.isPeriod(p);
 
 sol = Solution();
 print(sol.simplifyEx("*.**..aaa..***.*..*"))
