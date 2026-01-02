@@ -26,14 +26,15 @@ class Solution:
                 elif p[y] == '*':
                     if (x-1 < 0):
                         matrix[x][y] = True;
+                    elif (y-2 >= 0):
+                        matrix[x][y] = matrix[x][y-2] or matrix[x-1][y];
                     else:
                         matrix[x][y] = matrix[x-1][y];
                 elif p[y] == s[x]:
                     matrix[x][y] = matrix[x][y-1];
                 else:
-                    matrix[x][y] = false;
+                    matrix[x][y] = False;
         return matrix[len(s)-1][len(p)-1]
-
 
 
 sol = Solution();
