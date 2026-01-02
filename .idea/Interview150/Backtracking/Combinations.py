@@ -1,15 +1,21 @@
 class Solution:
-    def combine(self, n: int, k: int) -> list[list[int]]:
-        if (k == 1):
-            return [[num] for num in range(1, n+1)]
-        lst = self.combine(n, k-1)
-        newLst = []
-        for innerLst in lst:
-            for num in range(innerLst[len(innerLst)-1]+1, n+1):
-                addLst = innerLst.copy()
-                addLst.append(num)
-                newLst.append(addLst)
-        return newLst
+
+    map = dict()
+    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+        results = [];
+        if target < min(candidates):
+            return results;
+        for index in range(len(candidates)):
+            num = candidates[index];
+            if num == target:
+                results.append([target]);
+            innerRes = self.combinationSum(candidates[index:], target-num);
+            for lst in innerRes:
+                lstCopy = lst.copy()
+                lstCopy.append(num)
+                results.append(lstCopy)
+        return results;
+
 
 sol = Solution()
-print(sol.combine(4, 2))
+print(sol.combinationSum([2,3,6,7], 7))
