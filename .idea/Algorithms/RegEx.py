@@ -6,7 +6,7 @@ class Solution:
         if p[0] == '*' or p[0] == '.' or p[0] == s[0]:
             matrix[0][0] = True;
         else:
-            return False;
+            matrix[0][0] = False;
 
         # Initializes matrix[0][s]
         for x in range(1, len(s)):
@@ -24,7 +24,7 @@ class Solution:
                     else:
                         matrix[x][y] = matrix[x-1][y-1];
                 elif p[y] == '*':
-                    if (x-1 < 0):
+                    if (x-1 < 0 and y-2 < 0):
                         matrix[x][y] = True;
                     elif (y-2 >= 0):
                         matrix[x][y] = matrix[x][y-2] or matrix[x-1][y];
@@ -38,4 +38,4 @@ class Solution:
 
 
 sol = Solution();
-print(sol.isMatch("aa", "a*"))
+print(sol.isMatch("aab", "c*a*b"))
