@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/MultiplyStr(43).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Interview150/Array&amp;String/Candy.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Interview150/Array&amp;String/Candy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,6 +337,11 @@
           <url>file://$PROJECT_DIR$/.idea/Interview150/Array&amp;String/RotateArray.py</url>
           <line>18</line>
           <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/MultiplyStr(43).py</url>
+          <line>20</line>
+          <option name="timeStamp" value="198" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

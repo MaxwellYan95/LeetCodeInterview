@@ -1,18 +1,38 @@
 class Solution:
     def candy(self, ratings: list[int]) -> int:
-        candies = [];
-        for index in range(len(ratings)):
-            candies.append(1);
-        for index in range(1, len(ratings)):
-            if ratings[index-1] < ratings[index]:
-                candies[index] = candies[index-1]+1;
-        for index in range(len(ratings)-2, -1, -1):
-            if ratings[index] > ratings[index+1]:
-                candies[index] = max(candies[index], candies[index+1]+1);
-        return sum(candies);
+        if len(ratings) <= 1:
+            return len(ratings)*1;
+        leftRate = ratings[0];
+        rightRate = ratings[len(ratings)-1]
+        candies = 0;
+        if (leftRate > ratings[1]):
+            candies += 2;
+        else:
+            candies += 1;
+        if (rightRate > ratings[len(ratings)-2]):
+            candies += 2;
+        else:
+            candies += 1;
+        for index in range(0, len(ratings)):
+            if index == 0:
+                if ratings[index] > ratings[index+1]:
+                    candies += 2;
+                else:
+                    candies += 1;
+                continue
+            elif index == len(ratings)-1:
+                if ratings[index] > ratings[index-1]:
+                    candies += 2;
+                else:
+                    candies += 1;
+                continue
+            equal = (ratings[index] >= ratings[index-1] and ratings[index] >= ratings[index+1]);
+            greater = (ratings[index] > ratings[index-1] or ratings[index] > ratings[index+1])
+            if greater and equal:
+                candies += 2;
+            else:
+                candies += 1;
+        return candies;
 
-sol = Solution();
-print(sol.candy([1,2,2]));
-print(sol.candy([1,2,1]));
-print(sol.candy([1,0,2]));
-print(sol.candy([1, 2, 87, 87, 87, 2, 1]));
+sol = Solution()
+print(sol.candy())
