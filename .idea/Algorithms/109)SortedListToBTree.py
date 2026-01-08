@@ -1,3 +1,4 @@
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -10,14 +11,28 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
-        tree = TreeNode(head.val);
+
+
+    def sortedListToBST(self, head: ListNode) -> TreeNode:
+        if head == None:
+            return None;
+        lst = self.listToArray(head)
+        midInd = (len(lst)) // 2;
+        tree = TreeNode(lst[midInd]);
+        for num in lst[:midInd]:
+            self.insertIntoBST(tree, num);
+        for num in lst[midInd+1:]:
+            self.insertIntoBST(tree, num);
+        return tree;
+
+    def listToArray(self, head: ListNode) -> list[int]:
+        lst = [head.val]
         current = head;
         current = current.next;
         while current != None:
-            self.insertIntoBST(tree, current.val);
-        return tree;
-
+            lst.append(current.val);
+            current = current.next;
+        return lst
 
     def insertIntoBST(self, tree: TreeNode, value: int):
         front = tree;
@@ -31,3 +46,10 @@ class Solution:
                 front.right = TreeNode(value)
             else:
                 self.insertIntoBST(front.right, value)
+
+sol = Solution();
+last = ListNode(3)
+middle = ListNode(2, last)
+front = ListNode(1, middle)
+tree = sol.sortedListToBST(front)
+print();
