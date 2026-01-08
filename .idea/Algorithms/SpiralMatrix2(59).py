@@ -1,36 +1,23 @@
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
-        visited = [];
-        matrix = [[] for i in range(n)];
-        number = 1;
-        row = 0;
-        col = 0;
-        rowBounds = [0, n];
-        colBounds = [0, n];
-        end = rowBounds[0] != rowBounds[1] and colBounds[0] != colBounds[1];
-        while end:
-            for c in range(colBounds[0], colBounds[1]):
-                matrix[row][c] = number;
-                number += 1;
-            col = colBounds[1]-1;
-            for r in range(rowBounds[0], rowBounds[1]):
-                matrix[r][col] = number;
-                number += 1;
-            rowBounds[0] += 1;
-            row = rowBounds[1]-1
-            if end:
-                break;
-            for c in range(colBounds[1]-1, colBounds[0]-1, -1):
-                matrix[r][col] = number;
-                number += 1;
-            col = colBounds[0]
-            for r in range(rowBounds[1]-1, rowBounds[0]-1, -1):
-                matrix[row][c] = number;
-                number += 1;
-            colBounds[1] -= 1;
-            row = rowBounds[0];
-            if end:
-                break;
+        row, col = 0, 0;
+        matrix = [[0]*n for i in range(n)]
+        def checkBounds(row: int, col: int, n: int) -> bool:
+            return row >= 0 and row < n and col >= 0 and col < n;
+        direction = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+        dirIndex = 0;
+        for num in range(1, n*n+1):
+            matrix[row][col] = num;
+            dRow = direction[dirIndex][0];
+            dCol = direction[dirIndex][1];
+            changeDir = not checkBounds(row+dRow, col+dCol, n) \
+                        or matrix[row+dRow][col+dCol] != 0
+            if changeDir:
+                dirIndex = (dirIndex + 1) % 4
+            dRow = direction[dirIndex][0];
+            dCol = direction[dirIndex][1];
+            row += dRow;
+            col += dCol;
         return matrix;
 
 sol = Solution();
