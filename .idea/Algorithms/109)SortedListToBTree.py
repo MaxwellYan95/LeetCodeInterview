@@ -13,14 +13,14 @@ class TreeNode:
 class Solution:
 
 
-    def sortedListToBST(self, head: ListNode) -> TreeNode:
+    def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
         if head == None:
             return None;
         lst = self.listToArray(head)
         midInd = (len(lst)) // 2;
         tree = TreeNode(lst[midInd]);
-        for num in lst[:midInd]:
-            self.insertIntoBST(tree, num);
+        for ind in range(midInd-1, -1, -1):
+            self.insertIntoBST(tree, lst[ind]);
         for num in lst[midInd+1:]:
             self.insertIntoBST(tree, num);
         return tree;
