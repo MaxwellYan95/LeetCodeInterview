@@ -17,13 +17,7 @@ class Solution:
         if head == None:
             return None;
         lst = self.listToArray(head)
-        midInd = (len(lst)) // 2;
-        tree = TreeNode(lst[midInd]);
-        for ind in range(midInd-1, -1, -1):
-            self.insertIntoBST(tree, lst[ind]);
-        for num in lst[midInd+1:]:
-            self.insertIntoBST(tree, num);
-        return tree;
+        return self.listToTree(lst)
 
     def listToArray(self, head: ListNode) -> list[int]:
         lst = [head.val]
@@ -34,18 +28,18 @@ class Solution:
             current = current.next;
         return lst
 
-    def insertIntoBST(self, tree: TreeNode, value: int):
-        front = tree;
-        if (value < front.val):
-            if (front.left == None):
-                front.left = TreeNode(value)
-            else:
-                self.insertIntoBST(front.left, value)
-        else:
-            if (front.right == None):
-                front.right = TreeNode(value)
-            else:
-                self.insertIntoBST(front.right, value)
+    def listToTree(self, lst: list[int]) -> TreeNode:
+        if len(lst) == 0:
+            return None;
+        if len(lst) == 1:
+            return TreeNode(lst[0])
+        midInd = (len(lst)) // 2;
+        leftTree = listToTree(lst[:midInd])
+        rightTree = listToTree(lst[midInd+1:])
+        tree = TreeNode(lst[midInd]);
+        tree.left = leftTree;
+        tree.right = rightTree;
+        return tree
 
 sol = Solution();
 last = ListNode(3)
