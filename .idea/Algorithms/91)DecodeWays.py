@@ -1,9 +1,6 @@
 from collections import defaultdict
 
 class Solution:
-
-    mapping = defaultdict(int);
-
     def numDecodings(self, s: str) -> int:
         if len(s) == 0 or s[0] == '0':
             return 0;
