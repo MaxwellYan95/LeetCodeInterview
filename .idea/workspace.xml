@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -380,8 +380,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="217" />
+          <line>13</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="219" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
