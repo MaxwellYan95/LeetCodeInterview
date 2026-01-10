@@ -20,41 +20,24 @@ class Solution:
                   bx1: int, by1: int, bx2: int, by2: int) -> bool:
         aPoints = [[ax1, ay1], [ax2, ay2]]
         bPoints = [[bx1, by1], [bx2, by2]]
-        xInter = False;
-        yInter = False;
-        for point in aPoints:
-            xCoord = point[0];
-            b1 = bPoints[0][0];
-            b2 = bPoints[1][0];
-            if b1 < xCoord < b2:
-                xInter = True;
-            if b2 < xCoord < b1:
-                xInter = True;
-        for point in bPoints:
-            xCoord = point[0];
-            a1 = aPoints[0][0];
-            a2 = aPoints[1][0];
-            if a1 < xCoord < a2:
-                xInter = True;
-            if a2 < xCoord < a1:
-                xInter = True;
-        for point in aPoints:
-            yCoord = point[1];
-            b1 = bPoints[0][1];
-            b2 = bPoints[1][1];
-            if b1 < yCoord < b2:
-                yInter = True;
-            if b2 < yCoord < b1:
-                yInter = True;
-        for point in bPoints:
-            yCoord = point[1];
-            a1 = aPoints[0][1];
-            a2 = aPoints[1][1];
-            if a1 < yCoord < a2:
-                yInter = True;
-            if a2 < yCoord < a1:
-                yInter = True;
-        return xInter and yInter;
+        xyInter = [False, False];
+        for p in range(0, 2):
+            for xy in range(0, 2):
+                pA = aPoints[p][xy]
+                pB = bPoints[p][xy]
+                a1 = aPoints[0][xy]
+                a2 = aPoints[1][xy]
+                b1 = bPoints[0][xy]
+                b2 = bPoints[1][xy]
+                if b2 <= pA <= b1:
+                    xyInter[xy] = True;
+                if b1 <= pA <= b2:
+                    xyInter[xy] = True;
+                if a2 <= pB <= a1:
+                    xyInter[xy] = True;
+                if a1 <= pB <= a2:
+                    xyInter[xy] = True;
+        return xyInter[0] and xyInter[1];
 
 sol = Solution();
 area = sol.computeArea(-3, 0, 3, 4, 0, -1, 9, 2);
