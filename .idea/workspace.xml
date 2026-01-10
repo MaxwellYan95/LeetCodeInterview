@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Mock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/223)RectangleArea.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/223)RectangleArea.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/118)Pascal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +43,9 @@
       <recent name="$PROJECT_DIR$/.idea/Mult-dimDP" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/.idea/Interview150" />
       <recent name="$PROJECT_DIR$/.idea" />
+      <recent name="$PROJECT_DIR$/MockInterview2" />
+      <recent name="$PROJECT_DIR$/.idea/Interview150" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -95,12 +95,12 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/MockInterview/Question2.py</url>
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1/Question2.py</url>
           <line>57</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/MockInterview/Question2.py</url>
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1/Question2.py</url>
           <line>50</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -400,12 +400,12 @@
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Mock.py</url>
+          <url>file://$PROJECT_DIR$/.idea/MockInterview2/Mock.py</url>
           <line>60</line>
           <option name="timeStamp" value="223" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Mock.py</url>
+          <url>file://$PROJECT_DIR$/.idea/MockInterview2/Mock.py</url>
           <line>33</line>
           <option name="timeStamp" value="224" />
         </line-breakpoint>
