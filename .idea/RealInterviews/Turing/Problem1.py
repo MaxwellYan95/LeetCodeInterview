@@ -25,35 +25,39 @@ Output: 4
 Explanation:  The longest arithmetic subsequence is [20,15,10,5].
 """
 
+import numpy as np;
+
 class Solution:
 
+    dp = np.array([[-1 for inner in range(len(nums))] for outer in range(len(nums))])
 
     def longestArithSeqLength(self, nums: list[int]) -> int:
         diffs = [];
         longest = 0;
-        dp = [[-1 for inner in range(len(nums))] for outer in range(len(nums))]
         for i in range(len(nums)):
-            dp[i][i] = 0;
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                dp[i][j] = nums[j] - nums[i];
-                if dp[i][j] not in diffs:
-                    diffs.append(dp[i][j]);
-
+            self.dp[i][i] = 0;
         for i in range(len(nums)):
             for j in range(i+1, len(nums)):
-                if dp[i][j] in diffs:
-                    longest = max(longest, self.bfs(dp[j:][j:], dp[i][j]));
-                    diffs.remove(dp[i][j]);
+                self.dp[i][j] = nums[j] - nums[i];
+                if self.dp[i][j] not in diffs:
+                    diffs.append(self.dp[i][j]);
+
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if self.dp[i][j] in diffs:
+                    longest = max(longest, self.bfs(j, j, self.dp[i][j]));
+                    diffs.remove(self.dp[i][j]);
 
 
-    def bfs(self, graph: list[list[int]], diff: int):
-        if len(graph) == 0:
-            return 0;
+    def bfs(self, row: int, col: int, diff: int):
         result = 0;
-        for index in len(graph[1][1:]):
+        subDP = dp[row:, col:]
+        if len(subDP) == 0:
+            return 0;
+        for index in len(subDP[0]):
+            n = subDP[0][index];
             if n == diff:
-                result = max(result, 1+self.bfs(graph[n:][n:], diff))
+                result = max(result, self.bfs(index, index, diff))
         return result;
 
 sol = Solution()
