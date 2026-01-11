@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/131)PalindromePartition.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -419,7 +419,23 @@
           <line>46</line>
           <option name="timeStamp" value="235" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="239" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/131)PalindromePartition.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="240" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="s[:index]" language="Python" />
+        <watch expression="s[index-1]" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
