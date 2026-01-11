@@ -25,40 +25,23 @@ Output: 4
 Explanation:  The longest arithmetic subsequence is [20,15,10,5].
 """
 
-import numpy as np;
-
 class Solution:
-
-    dp = np.array([[-1 for inner in range(len(nums))] for outer in range(len(nums))])
-
     def longestArithSeqLength(self, nums: list[int]) -> int:
-        diffs = [];
-        longest = 0;
-        for i in range(len(nums)):
-            self.dp[i][i] = 0;
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                self.dp[i][j] = nums[j] - nums[i];
-                if self.dp[i][j] not in diffs:
-                    diffs.append(self.dp[i][j]);
+        if len(nums) <= 1:
+            return len(nums);
+        longest = 2;
 
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if self.dp[i][j] in diffs:
-                    longest = max(longest, self.bfs(j, j, self.dp[i][j]));
-                    diffs.remove(self.dp[i][j]);
+        # {} means dictionary
+        dp = [{} for i in range(len(nums))];
 
+        for current in range(len(nums)):
+            for next in range(current):
+                diff = nums[current] - nums[next];
+                dp[current][diff] = 1 + dp[next].get(diff, 1);
+                longest = max(longest, dp[current][diff]);
 
-    def bfs(self, row: int, col: int, diff: int):
-        result = 0;
-        subDP = dp[row:, col:]
-        if len(subDP) == 0:
-            return 0;
-        for index in len(subDP[0]):
-            n = subDP[0][index];
-            if n == diff:
-                result = max(result, self.bfs(index, index, diff))
-        return result;
+        return longest;
+
 
 sol = Solution()
-print(sol.longestArithSeqLength([3,6,9,12]))
+print(sol.longestArithSeqLength([20,1,15,3,10,5,8]))
