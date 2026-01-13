@@ -6,6 +6,7 @@ class Solution:
         length = len(prices);
         for transactions in range(0, 3):
             dp[length-1][transactions][0] = 0;
+        # if the stock is held on the last day (thing to consider)
         for transactions in range(0, 3):
             dp[length-1][transactions][1] = prices[length-1];
         for day in range(length):
