@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/96)UniqueBSTree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -431,18 +431,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
-          <line>28</line>
+          <line>29</line>
           <option name="timeStamp" value="245" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="248" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
-          <line>14</line>
+          <line>15</line>
           <option name="timeStamp" value="250" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/96)UniqueBSTree.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/96)UniqueBSTree.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="253" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
