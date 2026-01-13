@@ -19,14 +19,18 @@ class Solution:
         def formatString(leftStr: str, rightStr: str) -> str:
             if leftStr[0] == '(':
                 leftStr = leftStr[1:len(leftStr)-1]
-            if rightStr != '':
+            if leftStr == '':
+                return rightStr
+            elif rightStr != '':
+                if '/' not in rightStr:
+                    return leftStr + '/' + rightStr
                 return leftStr + '/(' + rightStr + ')'
             else:
                 return leftStr + '/' + rightStr
 
         def recur(lower: int, higher: int):
             maxNum = 0;
-            minNum = 0;
+            minNum = float('inf');
             maxStr = "";
             minStr = "";
 
@@ -53,7 +57,7 @@ class Solution:
             allStr = str(nums[lower])
             for i in range(lower+1, higher):
                 allNum /= nums[i];
-                allStr += ("/" + str(nums));
+                allStr += ("/" + str(nums[i]));
             if maxNum < allNum:
                 maxNum = allNum;
                 maxStr = allStr;
