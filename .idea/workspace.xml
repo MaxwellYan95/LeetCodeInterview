@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/MinPathSum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/minimumPathSum.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,11 +203,6 @@
           <url>file://$PROJECT_DIR$/.idea/Interview150/GraphBFS/SnakesAndLadders.py</url>
           <line>44</line>
           <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview150/BinaryTreeGeneral/NextPointers.py</url>
@@ -434,6 +428,21 @@
           <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/LongPalin.py</url>
           <line>20</line>
           <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="250" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
