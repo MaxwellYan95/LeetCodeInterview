@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="" />
+    <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/396)RotateFunct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +43,7 @@
       <recent name="$PROJECT_DIR$/.idea/Mult-dimDP" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming" />
       <recent name="$PROJECT_DIR$/.idea" />
       <recent name="$PROJECT_DIR$/MockInterview2" />
       <recent name="$PROJECT_DIR$/.idea/Interview150" />
@@ -292,7 +296,7 @@
           <option name="timeStamp" value="189" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/10)RegEx(NOT_DONE).py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/10)RegEx(NOT_DONE).py</url>
           <line>38</line>
           <option name="timeStamp" value="190" />
         </line-breakpoint>
@@ -372,12 +376,12 @@
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/91)DecodeWays.py</url>
           <line>12</line>
           <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/91)DecodeWays.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/91)DecodeWays.py</url>
           <line>20</line>
           <option name="timeStamp" value="219" />
         </line-breakpoint>
@@ -417,7 +421,7 @@
           <option name="timeStamp" value="239" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/131)PalindromePartition.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/131)PalindromePartition.py</url>
           <line>32</line>
           <option name="timeStamp" value="240" />
         </line-breakpoint>
@@ -442,48 +446,48 @@
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/96)UniqueBSTree.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/96)UniqueBSTree.py</url>
           <line>10</line>
           <option name="timeStamp" value="251" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/96)UniqueBSTree.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/96)UniqueBSTree.py</url>
           <line>5</line>
           <option name="timeStamp" value="254" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/241)WaysToAddParentheses.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/241)WaysToAddParentheses.py</url>
           <line>5</line>
           <option name="timeStamp" value="255" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/241)WaysToAddParentheses.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/241)WaysToAddParentheses.py</url>
           <line>43</line>
           <option name="timeStamp" value="256" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/241)WaysToAddParentheses.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/241)WaysToAddParentheses.py</url>
           <line>10</line>
           <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/553)OptimalDivision.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/553)OptimalDivision.py</url>
           <line>76</line>
           <option name="timeStamp" value="258" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/553)OptimalDivision.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/553)OptimalDivision.py</url>
           <line>52</line>
           <option name="timeStamp" value="260" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/152)MaxProductSubarray.py</url>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py</url>
           <line>20</line>
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/343)IntBreak.py</url>
-          <line>9</line>
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/343)IntBreak.py</url>
+          <line>10</line>
           <option name="timeStamp" value="262" />
         </line-breakpoint>
       </breakpoints>
