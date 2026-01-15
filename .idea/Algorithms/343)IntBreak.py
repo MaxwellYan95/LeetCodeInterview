@@ -5,8 +5,9 @@ class Solution:
         dp[2] = 1;
         for i in range(3, n+1):
             maxRes = 0;
+            twoNum = j*(i-j)
             for j in range(2, i):
-                maxRes = max(j * dp[i-j], j*(i-j), maxRes);
+                maxRes = max(j * dp[i-j], twoNum, maxRes);
             dp[i] = maxRes;
         return dp[n]
 
