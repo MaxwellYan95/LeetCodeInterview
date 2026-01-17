@@ -492,7 +492,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/516)LongestPalindromicSubseq.py</url>
-          <line>38</line>
+          <line>18</line>
           <option name="timeStamp" value="266" />
         </line-breakpoint>
       </breakpoints>
