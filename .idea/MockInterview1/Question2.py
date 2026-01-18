@@ -3,56 +3,34 @@ import collections
 
 class Solution:
 
-    def removeEdge(self, edge: list[int], points: dict):
-        edge1 = edge[0];
-        edge2 = edge[1];
-        if edge1 in points:
-            points[edge1].remove(edge2);
-        if edge2 in points:
-            points[edge2].remove(edge1);
-
-    def addEdge(self, edge: list[int], points: dict):
-        edge1 = edge[0];
-        edge2 = edge[1];
-        if edge1 not in points:
-            points[edge1] = [edge2];
-        else:
-            points[edge1].append(edge2);
-        if edge2 not in points:
-            points[edge2] = [edge1];
-        else:
-            points[edge2].append(edge1);
-
-    def connectDict(self, n: int, connections: list[list[int]]):
-        points = {};
-        for connect in connections:
-            self.addEdge(connect, points);
-        return points;
-
     def criticalConnections(self, n: int, connections: list[list[int]]) -> list[list[int]]:
-        dictionary = self.connectDict(n, connections);
-        critical = [];
+        adjMatrix = [[0 for i in range(n)] for j in range(n)]
         for connect in connections:
-            visited = [];
-            def bfs(points: dict):
-                q = collections.deque();
-                q.append(0);
-                while q:
-                    node = q.popleft();
-                    if node in points:
-                        for neigh in points[node]:
-                            if neigh not in visited:
-                                visited.append(neigh);
-                                q.append(neigh);
-                if len(visited) == n:
-                    return False;
-                return True;
-            self.removeEdge(connect, dictionary);
-            isCrit = bfs(dictionary);
-            self.addEdge(connect, dictionary);
-            if (isCrit):
-                critical.append(connect);
-        return critical;
+            if connect[1] > connect[0]:
+                adjMatrix[connect[0]][connect[1]] = 1
+            else:
+                adjMatrix[connect[1]][connect[0]] = 1
+        crits = [];
+        for x in range(n):
+            for y in range(x+1, n):
+                xAdj = [adjMatrix[index][y] for index in range(0, n)]
+                yAdj = [adjMatrix[x][index] for index in range(0, n)]
+                if adjMatrix[x][y] == 1 and sum(xAdj) == 1 and sum(yAdj) == 1:
+                    crits.append([x, y]);
+        return crits;
+
+    def hasAdjOne(self, x: int, y: int, adjMatrix: list[list[int]]):
+        for xAdj in [x-1, x+1]:
+            bounds = xAdj >= 0 or xAdj < len(adjMatrix);
+            if bounds:
+                if adjMatrix[xAdj][y] == 1:
+                    return True;
+        for yAdj in [y-1, y+1]:
+            bounds = yAdj >= 0 or yAdj < len(adjMatrix);
+            if bounds:
+                if adjMatrix[x][yAdj] == 1:
+                    return True;
+        return False;
 
 sol = Solution();
 print(sol.criticalConnections(4, [[0,1],[1,2],[2,0],[1,3]]))

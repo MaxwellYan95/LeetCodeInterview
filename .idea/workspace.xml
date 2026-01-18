@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MockInterview2_Jan17th/Binary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/MockInterview2_Jan17th/DeleteNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MockInterview3/License.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan17th/License.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MockInterview3/longestPath.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan17th/longestPath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MockInterview1/Question1.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MockInterview1/ReverseStr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MockInterview1/Question2.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MockInterview1/Question2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,12 +98,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/MockInterview1/Question2.py</url>
-          <line>57</line>
+          <line>35</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/MockInterview1/Question2.py</url>
-          <line>50</line>
+          <line>33</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -523,12 +521,28 @@
           <line>15</line>
           <option name="timeStamp" value="271" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1/ReverseStr.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1/Question2.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1/Question2.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="s[:index]" language="Python" />
         <watch expression="s[index-1]" language="Python" />
+        <watch expression="s[end-1: beg-1: -1]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
