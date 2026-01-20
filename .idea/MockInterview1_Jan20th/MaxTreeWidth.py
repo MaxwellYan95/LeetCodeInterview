@@ -1,3 +1,4 @@
+from collections import deque
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -6,34 +7,20 @@ class TreeNode:
         self.right = right
 class Solution:
     def widthOfBinaryTree(self, root: TreeNode) -> int:
-        width = 1;
-        maxWidth = 1;
-        stack = [];
-        if root.left != None:
-            stack.append(root.left)
-        if root.right != None:
-            stack.append(root.right);
-        if len(stack) == 2:
-            width = 2;
-        while len(stack) == 2:
-            maxWidth = max(maxWidth, width)
-            rightTree = stack.pop();
-            leftTree = stack.pop();
-            width *= 2;
-            if leftTree.left != None:
-                stack.append(leftTree.left);
-            elif leftTree.right != None:
-                width -= 1;
-                stack.append(leftTree.right);
-            else:
-                return maxWidth;
-            if rightTree.right != None:
-                stack.append(rightTree.right);
-            elif rightTree.left != None:
-                width -= 1;
-                stack.append(rightTree.left);
-            else:
-                return maxWidth;
+        collect = deque([(root, 1)])
+        maxWidth = 0;
+        while len(collect) != 0:
+            n = len(collect);
+            _, start = collect[0]
+            for _ in range(n):
+                tree, index = collect.popleft();
+                if tree.left != None:
+                    collect.append((tree.left, index*2))
+                if tree.right != None:
+                    collect.append((tree.right, index*2+1));
+                maxWidth = max(maxWidth, index-start+1);
+        return maxWidth;
+
 
 sol = Solution()
 six = TreeNode(6)
