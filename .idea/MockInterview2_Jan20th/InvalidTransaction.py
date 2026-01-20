@@ -1,21 +1,16 @@
 class Solution:
     def invalidTransactions(self, transactions: list[str]) -> list[str]:
-        if len(transactions) == 1:
-            if self.greaterThan1000(transactions[0]):
-                return [transactions[0]]
-            return [];
-        recur = self.invalidTransactions(transactions[:len(transactions)-1])
-        last = transactions[len(transactions)-1]
-        if self.greaterThan1000(last):
-            recur.append(last)
-        else:
-            for prev in transactions[:len(transactions)-1]:
-                if self.lessThanHour(prev, last):
-                    if prev not in recur:
-                        recur.append(prev);
-                    recur.append(last);
+        result = [];
+        for i1 in range(len(transactions)):
+            t1 = transactions[t1]
+            for t2 in transactions[:i1]+transactions[i1+1:]:
+                if self.greaterThan1000(t1):
+                    result.append(t1)
                     break;
-        return recur;
+                elif self.lessThanHour(t1, t2):
+                    result.append(t1)
+                    break;
+        return result;
 
     def greaterThan1000(self, transaction: str):
         format = self.transactionFormat(transaction);
