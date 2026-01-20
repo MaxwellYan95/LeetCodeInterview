@@ -6,20 +6,23 @@ class ListNode:
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        if headB == None or headA == None:
-            return None;
-        if headB.val == headA.val:
-            return headA.val;
-        else:
-            aNode = self.getIntersectionNode(headA.next, headB);
-            bNode = self.getIntersectionNode(headA, headB.next);
-            if aNode == None and bNode == None:
-                return None;
-            elif aNode == None:
-                return bNode;
-            elif bNode == None:
-                return aNode
-            return aNode;
+        stackA = []
+        stackB = []
+        while headA != None or headB != None:
+            if headA != None:
+                stackA.append(headA)
+                headA = headA.next;
+            if headB != None:
+                stackB.append(headB)
+                headB = headB.next;
+        prev = None;
+        while len(stackA) > 0 and len(stackB) > 0:
+            nodeA = stackA.pop();
+            nodeB = stackB.pop();
+            if nodeA != nodeB:
+                return prev;
+            prev = nodeB;
+        return prev;
 
 sol = Solution();
 lst2 = ListNode(2);
