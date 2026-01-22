@@ -24,24 +24,23 @@ Input: nums = [20,1,15,3,10,5,8]
 Output: 4
 Explanation:  The longest arithmetic subsequence is [20,15,10,5].
 """
+from collections import defaultdict
 
 class Solution:
     def longestArithSeqLength(self, nums: list[int]) -> int:
-        if len(nums) <= 1:
-            return len(nums);
-        longest = 2;
-
-        # {} means dictionary
-        dp = [{} for i in range(len(nums))];
-
-        for current in range(len(nums)):
-            for next in range(current):
-                diff = nums[current] - nums[next];
-                dp[current][diff] = 1 + dp[next].get(diff, 1);
-                longest = max(longest, dp[current][diff]);
-
-        return longest;
+        # dp[end_index][diff] = size of longest arithmetic sequence
+        dp = [{} for i in range(len(nums))]
+        longestArr = 0;
+        for cur_index in range(len(nums)-1):
+            for next_index in range(cur_index+1, len(nums)):
+                diff = nums[cur_index]-nums[next_index];
+                if diff not in dp[cur_index]:
+                    dp[next_index][diff] = 1+1;
+                else:
+                    dp[next_index][diff] = 1+dp[cur_index][diff]
+                longestArr = max(longestArr, dp[next_index][diff]);
+        return longestArr
 
 
 sol = Solution()
-print(sol.longestArithSeqLength([20,1,15,3,10,5,8]))
+print(sol.longestArithSeqLength([83,20,17,43,52,78,68,45]))

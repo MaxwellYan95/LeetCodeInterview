@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/413)ArithmeticSlices.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/413)ArithmeticSlices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -397,13 +397,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py</url>
-          <line>46</line>
+          <line>45</line>
           <option name="timeStamp" value="235" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/RealInterviews/Turing/Problem1.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="239" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/131)PalindromePartition.py</url>
