@@ -1,31 +1,28 @@
 class Solution:
     def findMinHeightTrees(self, n: int, edges: list[list[int]]) -> list[int]:
-        adjMatrix = [[0 for i in range(n)] for j in range(n)]
+        self.neighbors = {}
+        for i in range(n):
+            self.neighbors[i] = []
         for edge in edges:
-            adjMatrix[edge[0]][edge[1]] = 1;
-            adjMatrix[edge[1]][edge[0]] = 1;
+            u = edge[0]
+            v = edge[1]
+            self.neighbors[u].append(v)
+            self.neighbors[v].append(u)
         self.visited = [False for i in range(n)]
         self.minHeight = float('inf')
         self.map = {} # root: height
-        def bfs(n: int):
-            height = 0;
-            stack = [n];
-            while stack:
-                current = stack.pop();
-                self.visited[current] = True;
-                addedNode = False;
-                for index in range(len(adjMatrix[current])):
-                    isNeighbor = adjMatrix[current][index] == 1
-                    if self.visited[index] == False and isNeighbor:
-                        stack.append(index);
-                        addedNode = True
-                if addedNode:
-                    height += 1;
-            self.minHeight = min(self.minHeight, height);
-            self.map[n] = height;
+        def dfs(n: int):
+            maximum = 0;
+            self.visited[n] = True;
+            for next in self.neighbors[n]:
+                if self.visited[next] == False:
+                    maximum = max(maximum, dfs(next))
+            return maximum + 1;
         for node in range(n):
             self.visited = [False for i in range(n)]
-            bfs(node);
+            height = dfs(node);
+            self.minHeight = min(self.minHeight, height);
+            self.map[node] = height;
         result = [];
         for root in range(n):
             if self.map[root] == self.minHeight:
