@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/Greedy/316)RemoveDuplicateLetters.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/Greedy/316)RemoveDuplicateLetters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/Matrix/835)ImageOverlap.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -557,7 +557,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/Greedy/316)RemoveDuplicateLetters.py</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="306" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
