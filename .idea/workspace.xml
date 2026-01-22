@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan22th/Parentheses.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan22th/logFiles.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -564,6 +565,26 @@
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py</url>
           <line>5</line>
           <option name="timeStamp" value="310" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1_Jan22th/logFiles.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="312" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1_Jan22th/logFiles.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="313" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1_Jan22th/logFiles.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="314" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
