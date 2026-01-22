@@ -13,18 +13,24 @@ class Solution:
             while stack:
                 current = stack.pop();
                 self.visited[current] = True;
-                for neighbor in adjMatrix[current]:
-                    if self.visited[neighbor] == False:
-                        stack.append(neighbor);
-                height += 1;
+                addedNode = False;
+                for index in range(len(adjMatrix[current])):
+                    isNeighbor = adjMatrix[current][index] == 1
+                    if self.visited[index] == False and isNeighbor:
+                        stack.append(index);
+                        addedNode = True
+                if addedNode:
+                    height += 1;
             self.minHeight = min(self.minHeight, height);
-            map[n] = height;
+            self.map[n] = height;
         for node in range(n):
+            self.visited = [False for i in range(n)]
             bfs(node);
         result = [];
         for root in range(n):
-            if map[root] == self.minHeight:
+            if self.map[root] == self.minHeight:
                 result.append(root);
         return result
 
-sol
+sol = Solution()
+print(sol.findMinHeightTrees(6, [[0,1],[0,2],[0,3],[3,4],[4,5]]))
