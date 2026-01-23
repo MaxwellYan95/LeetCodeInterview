@@ -7,17 +7,19 @@ class Solution:
         for p1, p2 in edges:
             neighbor[p1].append(p2)
             neighbor[p2].append(p1)
+        leaves = [node for node in nodeLst if len(neighbor[node]) == 1]
         while len(nodeLst) > 2:
-            removeLst = []
-            for node in nodeLst:
-                if len(neighbor[node]) == 1:
-                    nextNode = neighbor[node][0];
-                    neighbor[nextNode].remove(node)
-                    neighbor[node].remove(nextNode)
-                    removeLst.append(node);
-            for node in removeLst:
+            newLeaves = []
+            for node in leaves:
                 nodeLst.remove(node)
+                nextNode = neighbor[node][0];
+                neighbor[nextNode].remove(node)
+                neighbor[node].remove(nextNode)
+                if len(neighbor[nextNode]) == 1:
+                    newLeaves.append(nextNode)
+            leaves = newLeaves;
         return nodeLst
+
 
 
 sol = Solution()
