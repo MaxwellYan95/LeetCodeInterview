@@ -587,13 +587,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/Graphs/310)MinHeightTrees.py</url>
-          <line>32</line>
+          <line>24</line>
           <option name="timeStamp" value="315" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/Graphs/310)MinHeightTrees.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="318" />
+          <line>10</line>
+          <option name="timeStamp" value="320" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

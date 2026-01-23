@@ -1,33 +1,24 @@
+from collections import defaultdict
+
 class Solution:
     def findMinHeightTrees(self, n: int, edges: list[list[int]]) -> list[int]:
-        self.neighbors = {}
-        for i in range(n):
-            self.neighbors[i] = []
-        for edge in edges:
-            u = edge[0]
-            v = edge[1]
-            self.neighbors[u].append(v)
-            self.neighbors[v].append(u)
-        self.visited = [False for i in range(n)]
-        self.minHeight = float('inf')
-        self.map = {} # root: height
-        def dfs(n: int):
-            maximum = 0;
-            self.visited[n] = True;
-            for next in self.neighbors[n]:
-                if self.visited[next] == False:
-                    maximum = max(maximum, dfs(next))
-            return maximum + 1;
-        for node in range(n):
-            self.visited = [False for i in range(n)]
-            height = dfs(node);
-            self.minHeight = min(self.minHeight, height);
-            self.map[node] = height;
-        result = [];
-        for root in range(n):
-            if self.map[root] == self.minHeight:
-                result.append(root);
-        return result
+        nodeLst = [i for i in range(n)];
+        neighbor = defaultdict(list)
+        for p1, p2 in edges:
+            neighbor[p1].append(p2)
+            neighbor[p2].append(p1)
+        while len(nodeLst) > 2:
+            removeLst = []
+            for node in nodeLst:
+                if len(neighbor[node]) == 1:
+                    nextNode = neighbor[node][0];
+                    neighbor[nextNode].remove(node)
+                    neighbor[node].remove(nextNode)
+                    removeLst.append(node);
+            for node in removeLst:
+                nodeLst.remove(node)
+        return nodeLst
+
 
 sol = Solution()
-print(sol.findMinHeightTrees(6, [[0,1],[0,2],[0,3],[3,4],[4,5]]))
+print(sol.findMinHeightTrees(6, [[3,0],[3,1],[3,2],[3,4],[5,4]]))
