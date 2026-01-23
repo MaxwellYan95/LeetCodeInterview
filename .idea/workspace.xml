@@ -605,6 +605,11 @@
           <line>47</line>
           <option name="timeStamp" value="323" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/Greedy/179)LargestNum.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="324" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
