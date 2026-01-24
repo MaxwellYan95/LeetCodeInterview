@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan23rd/FlipInvert.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan24th/fruit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan24th/uniqueEmails.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -609,6 +610,11 @@
           <url>file://$PROJECT_DIR$/.idea/Algorithms/Matrix/240)Search2dMatrix.py</url>
           <line>44</line>
           <option name="timeStamp" value="324" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/MockInterview1_Jan24th/uniqueEmails.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="325" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
