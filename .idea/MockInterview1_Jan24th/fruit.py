@@ -1,17 +1,24 @@
+from collections import defaultdict
+
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
-        mapping = {}
-        keys = [];
+        length = 0;
+        maxLen = 0;
+        types = []
         for index in range(len(fruits)):
-            oneFruit = fruits[index]
-            if oneFruit not in mapping:
-                mapping[oneFruit] = index;
-                keys.append(oneFruit);
-        keys.append(len(fruits));
-        mapping[len(fruits)] = len(fruits);
-        maximum = mapping[keys[2]] - mapping[keys[0]];
-        for index in range(2, len(keys)):
-            lowVal = mapping[keys[index-2]]
-            highVal = mapping[keys[index]]
-            maximum = max(maximum, highVal-lowVal);
-        return maximum
+            curFruit = fruits[index];
+            if len(types) == 2 and curFruit not in types:
+                maxLen = max(maxLen, length);
+                length = 0;
+                types = types[1:]
+                types.append(curFruit);
+                continue;
+            if curFruit not in types:
+                types.append(curFruit);
+            length += 1;
+        maxLen = max(maxLen, length);
+        return maxLen
+
+sol = Solution()
+print(sol.totalFruit([0,1,2,2]))
+
