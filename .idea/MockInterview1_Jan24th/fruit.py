@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 class Solution:
-    def totalFruit(self, fruits: List[int]) -> int:
+    def totalFruit(self, fruits: list[int]) -> int:
         length = 0;
         maxLen = 0;
         types = []

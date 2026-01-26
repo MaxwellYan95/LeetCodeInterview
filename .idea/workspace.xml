@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/MockInterview1_Jan24th/fruit.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MockInterview1_Jan24th/fruit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -617,8 +618,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/MockInterview1_Jan24th/fruit.py</url>
-          <line>25</line>
+          <line>22</line>
           <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="332" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="333" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/279)PerfectSquare.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="334" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
