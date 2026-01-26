@@ -2,15 +2,21 @@ from collections import defaultdict
 
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
-        place = len(num)
-        keys = []
-        mapping = {}
-        for index in range(place):
-            digit = int(num[index]);
-            priority = digit / (index + 1);
-            mapping[priority] = digit;
-            keys.append(priority);
-        keys.sort(reverse=True);
-        for i in range(k):
-            mapping.pop(keys[i]);
-        return "".join(list(mapping.values()));
+        stack = []
+        count = 0;
+        finalLen = len(num) - k;
+        for digit in num:
+            while len(stack) > 0 and count < k and int(stack[len(stack)-1]) > int(digit):
+                stack.pop();
+                count += 1;
+            stack.append(digit);
+        if len(stack) > finalLen:
+            stack = stack[:finalLen]
+
+        # lstrip() removes characters from the left of the string
+        result = ''.join(stack).lstrip('0');
+        if result == '':
+            return '0'
+        return result;
+sol = Solution()
+print(sol.removeKdigits("1432219", 3))
