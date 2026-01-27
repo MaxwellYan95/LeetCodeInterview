@@ -3,18 +3,25 @@ import heapq
 
 class Solution:
     def mctFromLeafValues(self, arr: list[int]) -> int:
-        stack = [(num, num, 1) for num in arr]
+        # I FORGOT to add float('inf')
+        stack = [float('inf')];
+        total = 0;
+        # I FORGOT that each leaf in an in-order traversal
+        for num in arr:
+            # Finding a local maxima/minima
+            while stack[-1] < num:
+                middle = stack.pop();
+                # num is the right adj node of middle
+                # REMEMBER: stack[-1] is different because stack.pop() was called
+                # That means stack[-1] is the left adj node of middle
+                total += middle * min(num, stack[-1]);
+            stack.append(num)
+        # Has to be > and not >=
+        # Explanation: What if there is a root node?
+        while len(stack) > 2:
+            total += stack.pop() * stack[-1]
+        return total
 
-        heapq.heapify(stack)
-        nonLeaf = 0;
-        while len(stack) >= 2:
-            tup1 = heapq.heappop(stack);
-            min1 = max(tup1[1], tup1[2]);
-            tup2 = heapq.heappop(stack);
-            min2 = max(tup2[1], tup2[2]);
-            nonLeaf += (min2*min1);
-            heapq.heappush(stack, (min2*min1, min1, min2));
-        return nonLeaf;
 
 sol = Solution();
 print(sol.mctFromLeafValues([7, 12, 8, 10]))
