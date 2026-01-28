@@ -1,24 +1,24 @@
 from collections import defaultdict
-
 class Solution:
     def findMinHeightTrees(self, n: int, edges: list[list[int]]) -> list[int]:
-        nodeLst = [i for i in range(n)];
+        # finding degrees of each node
         neighbor = defaultdict(list)
-        for p1, p2 in edges:
-            neighbor[p1].append(p2)
-            neighbor[p2].append(p1)
-        leaves = [node for node in nodeLst if len(neighbor[node]) == 1]
-        while len(nodeLst) > 2:
-            newLeaves = []
-            for node in leaves:
-                nodeLst.remove(node)
-                nextNode = neighbor[node][0];
-                neighbor[nextNode].remove(node)
-                neighbor[node].remove(nextNode)
-                if len(neighbor[nextNode]) == 1:
-                    newLeaves.append(nextNode)
-            leaves = newLeaves;
-        return nodeLst
+        stack = [i for i in range(n)]
+        for u, v in edges:
+            neighbor[u].append(v);
+            neighbor[v].append(u);
+        while len(stack) > 2:
+            oneDegree = [];
+            for node in stack:
+                degree = len(neighbor[node])
+                if degree == 1:
+                    oneDegree.append(node)
+            for node in oneDegree:
+                adj = neighbor[node][0]
+                neighbor[adj].remove(node)
+                neighbor.pop(node);
+                stack.remove(node)
+        return stack
 
 
 

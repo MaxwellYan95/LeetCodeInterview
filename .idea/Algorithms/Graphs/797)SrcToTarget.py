@@ -1,7 +1,6 @@
 from collections import defaultdict
 
 class Solution:
-
     def allPathsSourceTarget(self, graph: list[list[int]]) -> list[list[int]]:
         # Using Dijstrka Alg
         self.stack = []
