@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/Graphs/310)MinHeightTrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/Graphs/310)MinHeightTrees.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/Graphs/797)SrcToTarget.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/Graphs/797)SrcToTarget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -559,18 +558,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py</url>
-          <line>21</line>
+          <line>22</line>
           <option name="timeStamp" value="309" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py</url>
-          <line>5</line>
+          <line>19</line>
           <option name="timeStamp" value="310" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/152)MaxProductSubarray.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="311" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/MockInterview1_Jan22th/logFiles.py</url>

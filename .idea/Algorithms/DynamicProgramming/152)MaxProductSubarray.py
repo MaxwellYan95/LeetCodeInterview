@@ -1,22 +1,23 @@
 class Solution:
     def maxProduct(self, nums: list[int]) -> int:
-        # Using two pass method
-        # Forward iteration and THEN backward iteration
-        res = -float('inf')
-        maxMulti = 1;
-        for n in nums[0:]:
-            maxMulti *= n;
-            res = max(res, maxMulti);
+        # what if the final maximum is negative
+        maximum = -float('inf')
+        # consider that -1*-1 = 1
+        result = 1;
+        for n in nums:
+            result *= n
+            maximum = max(result, maximum);
             if n == 0:
-                maxMulti = 1;
-        maxMulti = 1;
+                result = 1;
+        result = 1;
         for n in reversed(nums):
-            maxMulti *= n;
-            res = max(res, maxMulti);
+            result *= n
+            maximum = max(result, maximum);
             if n == 0:
-                maxMulti = 1;
-        return res;
+                result = 1;
+        return maximum
+
 
 
 sol = Solution();
-print(sol.maxProduct([3, -1, 4]))
+print(sol.maxProduct([2,3,-2,4]))
