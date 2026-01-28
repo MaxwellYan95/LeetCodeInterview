@@ -17,7 +17,7 @@ class Solution:
                     self.mapping[neighbor].extend(newPaths);
                     self.stack.append(neighbor)
         djstrka()
-        if len(self.mapping[len(graph)-1]):
+        if len(self.mapping[len(graph)-1]) == 0:
             djstrka()
         return self.mapping[len(graph)-1];
 
