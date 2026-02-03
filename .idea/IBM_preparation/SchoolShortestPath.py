@@ -10,18 +10,14 @@ def user_logic(grid):
     m = len(grid)
     n = len(grid[0])
     dp = [[-1 for i in range(n)] for j in range(m)]
-    dp[m-1][n-1] = grid[m-1][n-1]
-    index = [m-2, n-2]
-    def recur(curM: int, curN: int):
-        if dp[curM][curN] != -1:
-            return dp[curM][curN]
-        prevMin = float('inf')
-        right = None;
-        down = None;
-        if curM+1 < m:
-            prevMin = min(prevMin, recur(curM+1, curN))
-        if curN+1 < n:
-            prevMin = min(prevMin, recur(curM, curN+1))
-        dp[curM][curN] = grid[curM][curN] + prevMin
-        return dp[curM][curN]
-    return recur(0, 0)
+    dp[m-1][n-1] = grid[m-1][n-1] # forget about "dp[m-1][n-1] = grid[m-1][n-1]"
+    for index in range(n-2, -1, -1):
+        dp[m-1][index] = grid[m-1][index] + dp[m-1][index+1]
+    for index in range(m-2, -1, -1):
+        dp[index][n-1] = grid[index][n-1] + dp[index+1][n-1]
+    for curN in range(n-2, -1, -1):
+        for curM in range(m-2, -1, -1):
+            dp[curM][curN] = grid[curM][curN] + min(dp[curM+1][curN], dp[curM][curN+1])
+    return dp[0][0]
+
+user_logic([[1,3,1], [1,5,1], [4,2,1]])
