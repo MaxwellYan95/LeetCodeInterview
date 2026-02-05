@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Timestamps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maxXor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/Greedy/179)LargestNum.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/Greedy/179)LargestNum.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,10 +45,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.idea" />
+      <recent name="$PROJECT_DIR$/IBM_interview" />
       <recent name="$PROJECT_DIR$/.idea/Bisect" />
       <recent name="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming" />
       <recent name="$PROJECT_DIR$/MockInterview2" />
-      <recent name="$PROJECT_DIR$/.idea/Interview150" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -703,12 +702,12 @@
           <option name="timeStamp" value="365" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Timestamps.py</url>
+          <url>file://$PROJECT_DIR$/.idea/IBM_interview/Timestamps.py</url>
           <line>32</line>
           <option name="timeStamp" value="366" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Timestamps.py</url>
+          <url>file://$PROJECT_DIR$/.idea/IBM_interview/Timestamps.py</url>
           <line>24</line>
           <option name="timeStamp" value="367" />
         </line-breakpoint>
