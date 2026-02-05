@@ -1,24 +1,24 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        dp = [[-1 for i in range(len(s)+1)] for j in range(len(s))]
-        for index in range(len(s)):
-            dp[index][index+1] = s[index];
-            dp[index][index] = "";
-        def recur(low: int, high: int):
-            if dp[low][high] != -1:
-                return dp[low][high]
-            left = recur(low+1, high)
-            right = recur(low, high-1)
-            result = 0;
-            if s[low] == s[high-1] and dp[low+1][high-1] == s[low+1:high-1]:
-                result = s[low:high];
-            elif len(left) > len(right):
-                result = left
-            else:
-                result = right
-            dp[low][high] = result;
-            return dp[low][high]
-        return recur(0, len(s))
+        if len(s) <= 1:
+            return s
+        maxStr = "";
+        def expandCenter(left: int, right: int) -> str:
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1;
+                right += 1;
+            # exclusive of both left and right
+            # after the loop, either left and right is out of bounds or s[left] != s[right]
+            return s[left+1: right];
+        for i in range(len(s)-1):
+            odd = expandCenter(i, i)
+            even = expandCenter(i, i+1)
+            if len(odd) > len(maxStr):
+                maxStr = odd
+            if len(even) > len(maxStr):
+                maxStr = even
+        return maxStr
+
 
 
 
