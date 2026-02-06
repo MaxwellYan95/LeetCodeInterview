@@ -3,7 +3,7 @@ class Solution:
         dp = [[0 for i in range(len(matrix[0]))] for j in range(len(matrix))]
         m = len(matrix[0])
         n = len(matrix)
-        maxSide = 1;
+        maxSide = 0;
         for n2 in range(n):
             for m2 in range(m):
                 if matrix[n2][m2] == "1":
