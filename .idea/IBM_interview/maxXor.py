@@ -1,5 +1,5 @@
 #!/bin/python3
-
+import heapq
 import math
 import os
 import random
@@ -15,33 +15,32 @@ import sys
 #
 
 def getMaxXor(n):
-
-
-def binary(n: int):
     pow = 0;
-    curN = n;
-    while 2**pow < n:
+    stack = []
+    heapq.heapify(stack)
+    xor = n;
+    while 2**pow <= n:
         pow += 1;
-    result = ""
-    while curN > 0:
-        if 2**pow <= curN:
-            result = "1" + str(result);
-            curN -= 2**pow
-        else:
-            result = "0" + str(result);
-            pow -= 1;
-    if result[0] == '0':
-        return result[1:]
-    return result
+    for num in range(n+1, 2**(pow)):
+        p = pow;
+        prevXor = xor;
+        num2 = num;
+        xor = 0;
+        while prevXor > 0 or num2 > 0 or p >= 0:
+            if 2**p <= num2 and 2**p <= prevXor:
+                num2 -= (2**p)
+                prevXor -= (2**p)
+                p -= 1;
+                continue;
+            if 2**p <= num2:
+                num2 -= (2**p)
+                xor += (2**p)
+            if 2**p <= prevXor:
+                prevXor -= (2**p)
+                xor += (2**p)
+            p -= 1;
+        heapq.heappush(stack, [xor, num])
+    return heapq.heappop(stack)[1];
 
-def intToBinary(seq: str):
-    pow = 0;
-    result = 0;
-    for s in seq[::-1]:
-        if s == '1':
-            result += (2**pow);
-        pow += 1;
-    return result
+print(getMaxXor(12))
 
-
-# Write your code here
