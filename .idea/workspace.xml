@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Interview150/HashMap/Isomorphic.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Interview150/HashMap/Isomorphic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Interview150/HashMap/WordPattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Interview150/HashMap/WordPattern.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -748,7 +747,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview150/HashMap/Isomorphic.py</url>
-          <line>19</line>
+          <line>26</line>
           <option name="timeStamp" value="393" />
         </line-breakpoint>
       </breakpoints>

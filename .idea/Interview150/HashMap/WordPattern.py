@@ -1,19 +1,25 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        patternDict = {}
-        wordLst = s.split(" ");
-        patternLst = list(pattern);
-        if len(wordLst) != len(patternLst):
-            return False;
-        for index in range(len(wordLst)):
-            w = wordLst[index];
-            p = patternLst[index];
-            if p not in patternDict.keys():
-                if w in patternDict.values():
+        wordDict = {}
+        letterDict = {}
+        letterLst = list(pattern)
+        wordLst = s.split(" ")
+        if len(wordLst) != len(letterLst):
+            return False
+        for i in range(len(letterLst)):
+            letter = letterLst[i]
+            word = wordLst[i]
+            if word in wordDict:
+                if wordDict[word] != letter:
                     return False;
-                patternDict[p] = w;
-            elif patternDict[p] != w:
-                return False;
-        return True;
+            if letter in letterDict:
+                if letterDict[letter] != word:
+                    return False;
+            letterDict[letter] = word;
+            wordDict[word] = letter;
+        return True
+
+
+
 sol = Solution();
 print(sol.wordPattern("abba", "dog cat cat dog"))
