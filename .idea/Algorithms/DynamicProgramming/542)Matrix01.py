@@ -2,31 +2,38 @@ class Solution:
     def updateMatrix(self, mat: list[list[int]]) -> list[list[int]]:
         width = len(mat[0])
         height = len(mat)
-        self.dp = mat.copy()
-        self.dir = [[0, -1], [0, 1], [-1, 0], [1, 0]]
-        self.visited = [[False for i in range(width)] for j in range(height)]
+        # mat, by itself, partially acts like the dp
 
-        def recur(row: int, col: int):
-            if self.dp[row][col] == 0:
-                return self.dp[row][col];
-            if self.visited[row][col] == True:
-                return self.dp[row][col];
-            self.visited[row][col] = True
-            result = float('inf')
-            for x, y in self.dir:
-                newRow = row + x;
-                newCol = col + y;
-                if newCol >= 0 and newRow >= 0 \
-                        and newCol < width and newRow < height:
-                    result = min(result, recur(newRow, newCol)+1);
-            self.dp[row][col] = result
-            return self.dp[row][col]
+        # compare top and left adjacent
+        """
+        CAN'T use ranges such range(1, height) or range(1, width). 
+        Some values get excluded.
+        For example, what if you go to the edges of "mat"
+        """
 
         for row in range(height):
             for col in range(width):
-                if self.visited[row][col] == False:
-                    recur(row,col)
-        return self.dp
+                if mat[row][col] != 0:
+                    top = mat[row-1][col] if row > 0 else float('inf');
+                    left = mat[row][col-1] if col > 0 else float('inf');
+                    # cannot compare mat[row][col] with itself in the 1st iteration
+                    # this is because the value will remain as 1
+                    mat[row][col] = min(top+1, left+1);
+
+        # compare bottom and right adjacent
+        # the iteration has to start at the bottom right
+        for row in range(height-1, -1, -1):
+            for col in range(width-1, -1, -1):
+                if mat[row][col] != 0:
+                    bottom = mat[row+1][col] if row < height-1 else float('inf');
+                    right = mat[row][col+1] if col < width-1 else float('inf');
+                    mat[row][col] = min(mat[row][col], bottom+1, right+1);
+
+        """
+        You learned about using if and else in initializing a variable
+        """
+
+        return mat
 
 sol = Solution()
 print(sol.updateMatrix([[1,0,1,1,0,0,1,0,0,1],[0,1,1,0,1,0,1,0,1,1],[0,0,1,0,1,0,0,1,0,0],[1,0,1,0,1,1,1,1,1,1],[0,1,0,1,1,0,0,0,0,1],[0,0,1,0,1,1,1,0,1,0],[0,1,0,1,0,1,0,0,1,1],[1,0,0,0,1,1,1,1,0,1],[1,1,1,1,1,1,1,0,1,0],[1,1,1,1,0,1,0,0,1,1]]))

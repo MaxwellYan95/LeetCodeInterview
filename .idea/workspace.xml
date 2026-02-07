@@ -753,7 +753,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/542)Matrix01.py</url>
-          <line>31</line>
+          <line>36</line>
           <option name="timeStamp" value="395" />
         </line-breakpoint>
       </breakpoints>
