@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/Graphs/947)MostStonesRemoved.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/Graphs/947)MostStonesRemoved.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/Graphs/947)MostStonesRemoved.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -740,6 +739,11 @@
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/518)CoinChange2.py</url>
           <line>8</line>
           <option name="timeStamp" value="386" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/Graphs/947)MostStonesRemoved.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="392" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
