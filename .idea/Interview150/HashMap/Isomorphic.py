@@ -1,17 +1,32 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        sList = list(s);
-        tList = list(t);
-        isoDict = {};
-        for index in range(len(sList)):
-            sVal = sList[index];
-            tVal = tList[index];
-            if sVal not in isoDict.keys():
-                if tVal in isoDict.values():
+        sLst = list(s)
+        tLst = list(t)
+        mapping = {}
+        for i in range(len(s)):
+            curS = sLst[i];
+            curT = tLst[i];
+            if curS in mapping:
+                if mapping[curS] != curT:
                     return False;
-                isoDict[sVal] = tVal;
-            elif isoDict[sVal] != tVal:
-                return False;
+            mapping[curS] = curT;
+        mapping = {}
+        for i in range(len(s)):
+            curS = sLst[i];
+            curT = tLst[i];
+            if curT in mapping:
+                if mapping[curT] != curS:
+                    return False;
+            mapping[curT] = curS;
         return True;
+
+
+
+
+sol = Solution()
+print(sol.isIsomorphic("badc", "baba"))
+print(sol.isIsomorphic("paper", "title"))
+
+
 
     
