@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/542)Matrix01.py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/542)Matrix01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Interview75/Stack/RemoveStars.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -753,7 +753,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/542)Matrix01.py</url>
-          <line>36</line>
+          <line>38</line>
           <option name="timeStamp" value="395" />
         </line-breakpoint>
       </breakpoints>
