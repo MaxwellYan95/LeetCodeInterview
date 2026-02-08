@@ -6,10 +6,10 @@ class Solution:
         maxLen = 1;
         for c, d in pairs[1:]:
             newDict = {}
+            newDict[d] = 0 if d not in dict else dict[d]
             for b in dict:
                 if b < c:
-                    prevD = 0 if d not in dict else dict[d]
-                    newDict[d] = max(prevD, dict[b] + 1);
+                    newDict[d] = max(newDict[d], dict[b] + 1);
             dict.update(newDict)
             if d not in dict:
                 dict[d] = 1;
