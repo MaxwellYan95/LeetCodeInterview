@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Interview75/DFS/KeysAndRooms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/1143)LongestCommonSubseq.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -788,8 +788,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview75/DFS/KeysAndRooms.py</url>
-          <line>18</line>
+          <line>17</line>
           <option name="timeStamp" value="408" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/1143)LongestCommonSubseq.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="411" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/1143)LongestCommonSubseq.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="414" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
