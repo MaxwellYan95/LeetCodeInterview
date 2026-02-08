@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Feb7th/LargestVal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/MockInterview1_Feb7th/ReverseVowels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Interview75/ArrayString/DivStr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Interview75/ArrayString/MergeStrAlt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -776,6 +776,16 @@
           <url>file://$PROJECT_DIR$/.idea/MockInterview1_Feb7th/ReverseVowels.py</url>
           <line>11</line>
           <option name="timeStamp" value="405" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview75/ArrayString/DivStr.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="406" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview75/ArrayString/DivStr.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="407" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
