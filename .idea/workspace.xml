@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Interview75/SlidingWindow/MaxVowels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Interview75/SlidingWindow/MaxConsecutive.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -810,6 +810,11 @@
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/646)MaxLenChain.py</url>
           <line>7</line>
           <option name="timeStamp" value="420" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview75/SlidingWindow/MaxConsecutive.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="421" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
