@@ -5,21 +5,33 @@ class ListNode:
         self.next = next
 class Solution:
     def oddEvenList(self, head: ListNode) -> ListNode:
-        if head.next == None:
+        if head == None:
             return head
-        pt1 = head;
-        pt2 = head.next;
-        while pt2 != None:
-            n1 = pt1.val;
-            n2 = pt2.val;
-
-            if n1 % 2 == 0 and n2 % 2 == 1:
-                pt1.val = n2;
-                pt2.val = n1;
-            if n1 % 2 == 0 and n2 % 2 == 0:
-                pt2 = pt2.next;
+        oddLL = None;
+        oddTraverse = oddLL;
+        ptr = head;
+        result = head;
+        while ptr.next != None:
+            odd = ptr.next.val
+            if oddLL == None:
+                oddLL = ListNode(odd, None)
+                oddTraverse = oddLL;
             else:
-                pt1 = pt1.next;
-                pt2 = pt2.next;
-        return head;
+                oddLL.next = ListNode(odd, None);
+                oddLL = oddLL.next;
+            ptr.next = ptr.next.next;
+            if ptr.next == None:
+                break;
+            ptr = ptr.next
+        ptr.next = oddTraverse;
+        return result
+
+sol = Solution()
+four = ListNode(4, None)
+three = ListNode(3, four)
+two = ListNode(2, three)
+one = ListNode(1, two)
+print(sol.oddEvenList(one))
+
+
 
