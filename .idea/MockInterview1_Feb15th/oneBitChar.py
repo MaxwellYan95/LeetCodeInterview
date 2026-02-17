@@ -1,10 +1,16 @@
 class Solution:
+
+    # PAY ATTENTION to last bit. It's a 0
     def isOneBitCharacter(self, bits: list[int]) -> bool:
-        if len(bits) == 1:
+        return self.secondLastIsOne(bits) and self.secondLastIsOne(bits[1:])
+
+    def secondLastIsOne(self, bits: list[int]):
+        if len(bits) == 0:
             return True;
-        if len(bits) == 2:
-            return bits[0] == 1;
-        return self.isOneBitCharacter(bits[1:]) or self.isOneBitCharacter(bits[2:])
+        index = 0;
+        for i in range(0, len(bits), 2):
+            index = i;
+        return bits[index] != 1;
 
 sol = Solution()
-print(sol.isOneBitCharacter([1,0,0]))
+print(sol.isOneBitCharacter([0]))
