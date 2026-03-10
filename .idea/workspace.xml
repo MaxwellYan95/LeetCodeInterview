@@ -878,13 +878,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview75/BFS/NearestExit.py</url>
-          <line>2</line>
+          <line>4</line>
           <option name="timeStamp" value="471" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Interview75/BFS/NearestExit.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="473" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
