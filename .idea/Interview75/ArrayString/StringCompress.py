@@ -2,18 +2,28 @@ from collections import defaultdict
 
 class Solution:
     def compress(self, chars: list[str]) -> int:
-        countDict = dict();
-        for c in chars:
-            if c not in countDict:
-                countDict[c] = 1;
-            else:
-                countDict[c] += 1;
-        result = "";
-        for k in countDict.keys():
-            result += str(k)
-            if countDict[k] > 1:
-                result += str(countDict[k])
-        return len(result)
+        count = 1;
+        if len(chars) == 1:
+            return len(chars);
+        index = 0;
+        bound = 0;
+        while index < len(chars):
+            c1 = chars[index]
+            index += 1;
+            count = 1;
+            while index < len(chars) and c1 == chars[index]:
+                index += 1;
+                count += 1;
+            count = str(count);
+            chars[bound] = c1;
+            bound += 1;
+            if count != '1':
+                for num in count:
+                    chars[bound] = num;
+                    bound += 1;
+        chars = chars[:bound];
+        return len(chars);
 
 sol = Solution()
-print(sol.compress(["a","a","b","b","c","c","c"]))
+print(sol.compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+                   ))
