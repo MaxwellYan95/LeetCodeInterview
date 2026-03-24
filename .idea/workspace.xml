@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Interview75/LinkedList/MiddleNode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,16 +424,6 @@
           <url>file://$PROJECT_DIR$/.idea/Interview150/Mult-dimDP/BuySell3.py</url>
           <line>15</line>
           <option name="timeStamp" value="250" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/96)UniqueBSTree.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="251" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/96)UniqueBSTree.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="254" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/241)WaysToAddParentheses.py</url>
@@ -924,6 +914,16 @@
           <url>file://$PROJECT_DIR$/.idea/Interview75/Stack/Asteroid.py</url>
           <line>6</line>
           <option name="timeStamp" value="493" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview75/LinkedList/MiddleNode.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="495" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview75/LinkedList/MiddleNode.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="496" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
