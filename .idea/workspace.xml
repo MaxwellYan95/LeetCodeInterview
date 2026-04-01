@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/2466)GoodStrings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/2140)Brainpower(NotDone).py" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/2140)Brainpower(NotDone).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -832,11 +832,6 @@
           <option name="timeStamp" value="432" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/2140)Brainpower(NotDone).py</url>
-          <line>6</line>
-          <option name="timeStamp" value="434" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview75/ArrayString/reverseWords.py</url>
           <line>7</line>
           <option name="timeStamp" value="437" />
@@ -955,6 +950,11 @@
           <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/2466)GoodStrings.py</url>
           <line>5</line>
           <option name="timeStamp" value="511" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Algorithms/DynamicProgramming/2140)Brainpower(NotDone).py</url>
+          <line>14</line>
+          <option name="timeStamp" value="515" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
