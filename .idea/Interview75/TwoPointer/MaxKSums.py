@@ -1,18 +1,21 @@
 class Solution:
     def maxOperations(self, nums: list[int], k: int) -> int:
-        index = 0;
-        count = 0;
-        while len(nums) > 1 and index < len(nums):
-            n1 = nums[index];
-            n2 = k-nums[index]
-            if n2 in nums[index+1:]:
-                nums.remove(n1);
-                nums.remove(n2);
-                count += 1;
-            else:
-                index += 1;
-        return count
+        nums.sort()
+        first = 0;
+        last = len(nums)-1;
+        result = 0
+        total = nums[first] + nums[last]
+        while last > first:
+            if k == total:
+                first += 1;
+                last -= 1;
+                result += 1
+            elif total > k:
+                last -= 1;
+            elif total < k:
+                first += 1;
+            total = nums[first] + nums[last]
+        return result
 sol = Solution()
-print(sol.maxOperations([3,1,5,1,1,1,1,1,2,2,3,2,2]
-                        , 1))
+print(sol.maxOperations([1,2,3,4], 5))
 
