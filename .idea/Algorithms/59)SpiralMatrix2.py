@@ -1,24 +1,30 @@
 class Solution:
     def generateMatrix(self, n: int) -> list[list[int]]:
-        row, col = 0, 0;
-        matrix = [[0]*n for i in range(n)]
-        def checkBounds(row: int, col: int, n: int) -> bool:
-            return row >= 0 and row < n and col >= 0 and col < n;
-        direction = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        dirIndex = 0;
-        for num in range(1, n*n+1):
-            matrix[row][col] = num;
-            dRow = direction[dirIndex][0];
-            dCol = direction[dirIndex][1];
-            changeDir = not checkBounds(row+dRow, col+dCol, n) \
-                        or matrix[row+dRow][col+dCol] != 0
-            if changeDir:
-                dirIndex = (dirIndex + 1) % 4
-            dRow = direction[dirIndex][0];
-            dCol = direction[dirIndex][1];
-            row += dRow;
-            col += dCol;
-        return matrix;
+        if n == 1:
+            return [[1]]
+        num = 1;
+        x = 0;
+        y = 0;
+        visited = [];
+        matrix = [[0 for i in range(n)] for j in range(n)]
+        dir = [[1,0],[0,1],[-1,0],[0,-1]]
+        dirInd = 0;
+        while True:
+            if (x,y) in visited:
+                break;
+            matrix[y][x] = num;
+            num += 1;
+            visited.append((x,y))
+            newX = x + dir[dirInd][0];
+            newY = y + dir[dirInd][1];
+            bounds = newX >= 0 and newX < n and newY >= 0 and newY < n;
+            if (newX, newY) in visited or not bounds:
+                dirInd = (dirInd+1) % 4;
+                newX = x + dir[dirInd][0];
+                newY = y + dir[dirInd][1];
+            x = newX;
+            y = newY;
+        return matrix
 
 sol = Solution();
-print(sol.generateMatrix(4))
+print(sol.generateMatrix(2))
