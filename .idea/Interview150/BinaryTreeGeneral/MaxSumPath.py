@@ -5,17 +5,30 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    maxVal = {};
+    maxVal = 0;
 
     def maxPathSum(self, root: TreeNode) -> int:
-        self.res = float("-inf");
-        def dfs(root: TreeNode) -> int:
+        if root == None:
+            return 0;
+        self.maxVal = root.val
+        def maxPath(root: TreeNode):
             if root == None:
                 return 0;
-            left = max(0, dfs(root.left));
-            right = max(0, dfs(root.right));
-            self.res = max(self.res, root.val+left+right);
-            return max(0, left, right) + root.val;
-        dfs(root);
-        return self.res;
+            rightMax = maxPath(root.right)
+            leftMax = maxPath(root.left);
+            self.maxVal = max(self.maxVal, root.val+rightMax+leftMax)
+            self.maxVal = max(self.maxVal, root.val+max(rightMax, leftMax))
+            return root.val + max(rightMax, leftMax);
+        maxPath(root)
+        return self.maxVal;
+
+sol = Solution()
+nine = TreeNode(9)
+b1 = TreeNode(15)
+b2 = TreeNode(7)
+b = TreeNode(20, b1, b2)
+r = TreeNode(-10, nine, b)
+print(sol.maxPathSum(r))
+
+
 
