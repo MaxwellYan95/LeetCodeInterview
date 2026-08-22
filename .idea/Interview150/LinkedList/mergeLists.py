@@ -8,42 +8,34 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        nums = []
-        lists = []
-        list1Next = list1
-        list2Next = list2
-        while True:
-            if list1Next == None and list2Next == None:
-                break
-            elif list1Next == None:
-                nums.append(list2Next.val)
-                list2Next = list2Next.next
-            elif list2Next == None:
-                nums.append(list1Next.val)
-                list1Next = list1Next.next
+        if list1 == None:
+            return list2;
+        if list2 == None:
+            return list1;
+        node1 = list1
+        node2 = list2
+        front = None;
+        if node1.val < node2.val:
+            front = ListNode(node1.val, None)
+            node1 = node1.next;
+        else:
+            front = ListNode(node2.val, None)
+            node2 = node2.next
+        back = front;
+        while node1 != None and node2 != None:
+            if node1.val < node2.val:
+                back.next = ListNode(node1.val, None)
+                node1 = node1.next;
             else:
-                if list1Next.val < list2Next.val:
-                    nums.append(list1Next.val)
-                    list1Next = list1Next.next
-                else:
-                    nums.append(list2Next.val)
-                    list2Next = list2Next.next
-
-        for n in reversed(nums):
-            if len(lists) == 0:
-                obj = ListNode(n, None)
-                lists.append(obj)
-            else:
-                obj = ListNode(n, lists[len(lists)-1])
-                lists.append(obj)
-
-        return lists[len(lists)-1]
-
-firstList1 = ListNode(4, None)
-firstList2 = ListNode(2, firstList1)
-firstList3 = ListNode(1, firstList2)
-secondList1 = ListNode(4, None)
-secondList2 = ListNode(3, secondList1)
-secondList3 = ListNode(1, secondList2)
-sol = Solution()
-sol.mergeTwoLists(firstList3, secondList3)
+                back.next = ListNode(node2.val, None)
+                node2 = node2.next
+            back = back.next;
+        while node1 != None:
+            back.next = ListNode(node1.val, None)
+            node1 = node1.next;
+            back = back.next;
+        while node2 != None:
+            back.next = ListNode(node2.val, None)
+            node2 = node2.next
+            back = back.next
+        return front
