@@ -18,7 +18,8 @@ class Solution:
             leftMax = maxPath(root.left);
             self.maxVal = max(self.maxVal, root.val+rightMax+leftMax)
             self.maxVal = max(self.maxVal, root.val+max(rightMax, leftMax))
-            return root.val + max(rightMax, leftMax);
+            self.maxVal = max(self.maxVal, root.val)
+            return max(root.val, root.val + max(rightMax, leftMax));
         maxPath(root)
         return self.maxVal;
 
