@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="" />
+    <list default="true" id="eeb0d394-240e-47b5-aadd-febfceb0e3d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Interview150/Matrix/LifeGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -975,8 +978,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/.idea/Interview150/BinaryTreeGeneral/MaxSumPath.py</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="524" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview150/Matrix/LifeGame.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="526" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.idea/Interview150/Matrix/LifeGame.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="528" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
