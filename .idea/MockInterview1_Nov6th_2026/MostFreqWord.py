@@ -2,31 +2,37 @@ from collections import defaultdict
 
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: list[str]) -> str:
-        def fixWord(word: str):
-            punct = "!?',;."
-            w = word;
-            if list(punct).count(w[0]) > 0:
-                w = w[1:]
-            if list(punct).count(w[len(w)-1]) > 0:
-                w = w[:len(w)-1]
-            return w.lower();
+        def isPunctOrSpace(w: str):
+            if list(punct).count(w) > 0 or w == ' ':
+                return True
+            return False
 
-        wordLst = paragraph.split(" ")
-        punct = "!?',;."
+        beg = 0;
+        end = 1;
+        punct = "!?',;.";
         wordDict = defaultdict(int)
-        for word in wordLst:
-            word = fixWord(word)
-            if banned.count(word) > 0:
-                continue;
-            wordDict[word] += 1;
-
+        paragraph += " "
+        while end < len(paragraph):
+            endChar = paragraph[end]
+            if isPunctOrSpace(endChar):
+                word = paragraph[beg:end].lower()
+                if banned.count(word) == 0:
+                    wordDict[word] += 1
+                beg = end+1;
+                end = end+1;
+                while end < len(paragraph) and isPunctOrSpace(paragraph[beg]):
+                    beg = beg+1;
+                    end = end+1;
+            end = end + 1;
         maximum = 0;
-        maxWord = ""
+        maxWord = "";
         for word in wordDict.keys():
             if maximum <= wordDict[word]:
                 maximum = wordDict[word];
                 maxWord = word;
         return maxWord
+
+
 
 sol = Solution()
 print(sol.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"]))
